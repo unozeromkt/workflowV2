@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Check, Dot } from "lucide-react";
+import { Check } from "lucide-react";
+import { FeatureIcon } from "@/components/FeatureIcon";
 import { FinalCTA } from "@/components/FinalCTA";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
@@ -41,7 +42,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
             <div className="feature-grid">
               {section.groups.map((group) => (
                 <Reveal className="feature-card" key={group.title}>
-                  <Dot className="feature-dot" /><h3>{group.title}</h3>
+                  <FeatureIcon title={group.title} /><h3>{group.title}</h3>
                   <ul>{group.items.map((item) => <li key={item}><Check size={15} />{item}</li>)}</ul>
                 </Reveal>
               ))}

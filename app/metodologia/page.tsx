@@ -11,7 +11,7 @@ const icons = [ScanSearch, DraftingCompass, Rocket, Gauge];
 export default function MethodologyPage() {
   return (
     <main>
-      <PageHero eyebrow="METODOLOGÍA" title="METODOLOGÍA WORKFLOW" />
+      <PageHero title="METODOLOGÍA WORKFLOW" />
       <section className="section process-page">
         <div className="process-line" aria-hidden="true" />
         {methodology.map((step, index) => {

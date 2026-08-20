@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowUpRight, Bot, Braces, ScanSearch, ShoppingBag, UsersRound } from "lucide-react";
+import { ArrowUpRight, BrainCircuit, Compass, Headset, ShoppingCart, Workflow } from "lucide-react";
 import { FinalCTA } from "@/components/FinalCTA";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { services } from "@/data/site";
 
 export const metadata: Metadata = { title: "ENFOQUE WORKFLOW", description: "ENFOQUE WORKFLOW" };
-const icons = [Bot, Braces, ShoppingBag, UsersRound, ScanSearch];
+const icons = [BrainCircuit, Workflow, ShoppingCart, Headset, Compass];
 
 export default function ServicesPage() {
   return (
     <main>
-      <PageHero eyebrow="SERVICIOS" title="ENFOQUE WORKFLOW" />
+      <PageHero title="ENFOQUE WORKFLOW" />
       <section className="section services-index">
         {services.map((service, index) => {
           const Icon = icons[index];

@@ -11,7 +11,7 @@ export function PageHero({ eyebrow, title, subtitle, service = false }: { eyebro
         <h1>{title}</h1>
         {subtitle && <p>{subtitle}</p>}
       </div>
-      <div className="page-hero-index" aria-hidden="true">W / INT.</div>
+      <div className="page-hero-index" aria-hidden="true" />
     </section>
   );
 }

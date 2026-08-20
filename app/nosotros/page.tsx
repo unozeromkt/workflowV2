@@ -9,7 +9,7 @@ export const metadata: Metadata = { title: "WE ARE", description: "WE ARE" };
 export default function AboutPage() {
   return (
     <main>
-      <PageHero eyebrow="NOSOTROS" title="WE ARE" />
+      <PageHero title="WE ARE" />
       <section className="section about-page">
         <Reveal className="editorial-copy">
           <span className="editorial-number">01</span>

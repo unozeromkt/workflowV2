@@ -1,0 +1,60 @@
+import type { LucideIcon } from "lucide-react";
+import {
+  BadgeDollarSign,
+  Blocks,
+  BrainCircuit,
+  Cable,
+  ChartNoAxesCombined,
+  CircleDollarSign,
+  CodeXml,
+  Factory,
+  Files,
+  FlaskConical,
+  Headset,
+  Landmark,
+  Megaphone,
+  MessageCircleMore,
+  PanelsTopLeft,
+  RadioTower,
+  Route,
+  SearchCheck,
+  ShieldCheck,
+  ShoppingCart,
+  TrendingUp,
+  Truck,
+  UserRoundSearch,
+  Workflow,
+  Wrench,
+} from "lucide-react";
+
+const iconRules: Array<[RegExp, LucideIcon]> = [
+  [/VOZ|TELEFON|OUTSOURCING|BPO|ATENCIÓN/, Headset],
+  [/CONVERS|ASISTENTE|CHAT/, MessageCircleMore],
+  [/RECLUT|EMPLEADO|TALENTO|ONBOARDING/, UserRoundSearch],
+  [/ANALÍT|PREDIC|DEMANDA|ANOMAL|COMPORTAMIENTO|CLIMA/, ChartNoAxesCombined],
+  [/DOCUMENT|CONTRAT|LEGAL|FACTURA/, Files],
+  [/FINAN|CONTABLE|CONTABILIDAD|PAGO/, CircleDollarSign],
+  [/FLUJO|WORKFLOW|AUTOMAT|ROBÓTICA|EJECUCIÓN/, Workflow],
+  [/CONOCIMIENTO|CEREBRO/, BrainCircuit],
+  [/SENSOR|MONITOREO|IOT|CAMPO/, RadioTower],
+  [/MANTENIMIENTO|CONTROL PREDICTIVO/, Wrench],
+  [/ESCENARIO|DIRECCIONAMIENTO|ESTRATEG/, Route],
+  [/CRM|GESTIÓN/, PanelsTopLeft],
+  [/VENTA|LEAD|EMBUDO|CONVERSIÓN/, TrendingUp],
+  [/INTEGRACIÓN|INTEROPERABILIDAD|API|MIDDLEWARE/, Cable],
+  [/WEB|MÓVIL|SOFTWARE|PLATAFORMA|SISTEMA/, CodeXml],
+  [/SEGURIDAD|FRAUDE|RIESGO/, ShieldCheck],
+  [/PRODUCTO|INVENTARIO|CARRITO|E-COMMERCE/, ShoppingCart],
+  [/LOGÍSTICA|ENVÍO|DESPACHO|SUMINISTRO/, Truck],
+  [/SEO|SEM|TRÁFICO|BÚSQUEDA/, SearchCheck],
+  [/MARKETING|POSICIONAMIENTO/, Megaphone],
+  [/PRODUCCIÓN|MANUFACTURA|OPERATIVA/, Factory],
+  [/ALTA GERENCIA|GOBIERNO/, Landmark],
+  [/I\+D|INVESTIGACIÓN|INNOVACIÓN/, FlaskConical],
+  [/TRANSACCIONAL|VALOR/, BadgeDollarSign],
+];
+
+export function FeatureIcon({ title }: { title: string }) {
+  const Icon = iconRules.find(([pattern]) => pattern.test(title.toUpperCase()))?.[1] ?? Blocks;
+  return <Icon className="feature-icon" aria-hidden="true" />;
+}

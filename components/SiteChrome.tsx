@@ -20,8 +20,7 @@ export function Header() {
   return (
     <header className="site-header">
       <Link href="/" className="brand" aria-label="WORKFLOW INT. — Inicio" onClick={() => setOpen(false)}>
-        <span className="brand-mark">wf</span>
-        <span>WORKFLOW <b>INT.</b></span>
+        <img className="brand-logo" src="/workflow-mark.png" alt="" />
       </Link>
       <nav className={open ? "main-nav is-open" : "main-nav"} aria-label="Navegación principal">
         {links.map((link) => link.services ? (
@@ -45,7 +44,10 @@ export function Header() {
         ))}
         <Link className="mobile-contact" href="/contacto" onClick={() => setOpen(false)}>Contacto <ArrowUpRight size={16} /></Link>
       </nav>
-      <Link className="header-cta" href="/contacto">Contacto <ArrowUpRight size={15} /></Link>
+      <Link className="bitrix-partner" href="/contacto" aria-label="Bitrix24 Certified Gold Partner — Contacto">
+        <img src="/bitrix24-gold-partner.png" alt="Bitrix24" />
+        <span>Certified Gold Partner</span>
+      </Link>
       <button className="menu-toggle" type="button" aria-label={open ? "Cerrar menú" : "Abrir menú"} aria-expanded={open} onClick={() => setOpen(!open)}>
         {open ? <X /> : <Menu />}
       </button>
@@ -57,15 +59,19 @@ export function Footer() {
   return (
     <footer className="site-footer">
       <div className="footer-top">
-        <Link href="/" className="brand"><span className="brand-mark">wf</span><span>WORKFLOW <b>INT.</b></span></Link>
-        <p>T R A N S F O R M A M O S V I D A S Y M O D E L O S D E N E G O C I O</p>
+        <Link href="/" className="brand footer-brand" aria-label="WORKFLOW INT. — Inicio"><img className="brand-logo" src="/workflow-mark.png" alt="" /><span>WORKFLOW <b>INT.</b></span></Link>
       </div>
       <div className="footer-grid">
-        <div><span className="footer-label">WEB</span><p>W E A R E W O R K F L O W . C O M</p></div>
-        <div><span className="footer-label">WHATSAPP</span><a href="https://wa.me/573005243896">+57 300 524 38 96</a></div>
-        <div className="footer-links">
-          <Link href="/nosotros">Nosotros</Link><Link href="/servicios">Servicios</Link><Link href="/experiencia">Experiencia</Link><Link href="/metodologia">Metodología</Link><Link href="/contacto">Contacto</Link>
-        </div>
+        <div className="footer-contact"><span className="footer-label">CONTACTO</span><a href="https://wa.me/573005243896">+57 300 524 38 96</a><p>Hablemos de estrategia, tecnología y operación inteligente.</p></div>
+        <nav className="footer-sitemap" aria-label="Mapa del sitio">
+          <span className="footer-label">MAPA DEL SITIO</span>
+          <div className="footer-links">
+            <Link href="/nosotros">Nosotros</Link><Link href="/servicios">Servicios</Link><Link href="/experiencia">Experiencia</Link><Link href="/metodologia">Metodología</Link><Link href="/contacto">Contacto</Link>
+          </div>
+          <div className="footer-service-links">
+            {services.map((service) => <Link key={service.slug} href={`/servicios/${service.slug}`}>{service.title}</Link>)}
+          </div>
+        </nav>
       </div>
     </footer>
   );

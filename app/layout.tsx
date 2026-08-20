@@ -12,11 +12,15 @@ export async function generateMetadata(): Promise<Metadata> {
   const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host") ?? "weareworkflow.com";
   const protocol = requestHeaders.get("x-forwarded-proto") ?? (host.includes("localhost") ? "http" : "https");
   const metadataBase = new URL(`${protocol}://${host}`);
-  const description = "E S T R A T E G I A , T E C N O L O G Í A Y O P E R A C I Ó N I N T E L I G E N T E";
+  const description = "ESTRATEGIA, TECNOLOGÍA Y OPERACIÓN INTELIGENTE";
   return {
     metadataBase,
     title: { default: "WORKFLOW INT.", template: "%s | WORKFLOW INT." },
     description,
+    icons: {
+      icon: [{ url: "/favicon.png", type: "image/png", sizes: "64x62" }],
+      apple: [{ url: "/apple-touch-icon.png", type: "image/png" }],
+    },
     openGraph: { title: "WORKFLOW INT.", description, images: [{ url: new URL("/og.png", metadataBase).toString(), width: 1536, height: 1024 }] },
     twitter: { card: "summary_large_image", title: "WORKFLOW INT.", description, images: [new URL("/og.png", metadataBase).toString()] },
   };

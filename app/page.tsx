@@ -1,11 +1,34 @@
 import Link from "next/link";
-import { ArrowUpRight, Bot, Braces, CircleDollarSign, CloudCog, Cpu, DatabaseZap, Network, ScanSearch, ShoppingBag, Sparkles, UsersRound } from "lucide-react";
+import { ArrowUpRight, BrainCircuit, ChartNoAxesCombined, CircleDollarSign, CloudCog, Compass, Cpu, Headset, ShoppingCart, Sparkles, Unplug, Workflow } from "lucide-react";
 import { FinalCTA } from "@/components/FinalCTA";
+import { HeroLottie } from "@/components/HeroLottie";
 import { Reveal } from "@/components/Reveal";
 import { industries, methodology, services, technologyNames } from "@/data/site";
 
-const serviceIcons = [Bot, Braces, ShoppingBag, UsersRound, ScanSearch];
-const problemIcons = [Network, CircleDollarSign, DatabaseZap];
+const serviceIcons = [BrainCircuit, Workflow, ShoppingCart, Headset, Compass];
+const problemIcons = [Unplug, CircleDollarSign, ChartNoAxesCombined];
+const clients = [
+  { name: "902", sheet: "/clients/fadesa.png", column: 1, row: "low" },
+  { name: "Fadesa", sheet: "/clients/fadesa.png", column: 2, row: "low" },
+  { name: "Maxibienes", sheet: "/clients/fadesa.png", column: 3, row: "low" },
+  { name: "Auros", sheet: "/clients/fadesa.png", column: 4, row: "low" },
+  { name: "Grupo UMA", sheet: "/clients/cajamag.png", column: 1, row: "high" },
+  { name: "Cajamag", sheet: "/clients/cajamag.png", column: 2, row: "high" },
+  { name: "Tecnosoluciones", sheet: "/clients/cajamag.png", column: 3, row: "high" },
+  { name: "Fundación Universitaria María Cano", sheet: "/clients/cajamag.png", column: 4, row: "high" },
+  { name: "Reditos", sheet: "/clients/amfora.png", column: 1, row: "low" },
+  { name: "Greater Medellín Convention & Visitors Bureau", sheet: "/clients/amfora.png", column: 2, row: "low" },
+  { name: "South Desk", sheet: "/clients/amfora.png", column: 3, row: "low" },
+  { name: "Amfora Packaging", sheet: "/clients/amfora.png", column: 4, row: "low" },
+  { name: "Universidad Autónoma de Manizales", sheet: "/clients/uam.png", column: 1, row: "low" },
+  { name: "Comfacundi", sheet: "/clients/uam.png", column: 2, row: "low" },
+  { name: "Con Suerte", sheet: "/clients/uam.png", column: 3, row: "low" },
+  { name: "Fundación organizacional", sheet: "/clients/uam.png", column: 4, row: "low" },
+  { name: "EPM", sheet: "/clients/sena.png", column: 1, row: "high" },
+  { name: "Alcaldía de Medellín", sheet: "/clients/sena.png", column: 2, row: "high" },
+  { name: "GAC", sheet: "/clients/sena.png", column: 3, row: "high" },
+  { name: "SENA", sheet: "/clients/sena.png", column: 4, row: "high" },
+];
 
 export default function Home() {
   return (
@@ -13,23 +36,50 @@ export default function Home() {
       <section className="hero">
         <div className="hero-noise" />
         <div className="hero-copy">
-          <p className="eyebrow">T R A N S F O R M A M O S &nbsp; V I D A S &nbsp; Y &nbsp; M O D E L O S &nbsp; D E &nbsp; N E G O C I O</p>
-          <h1><span>WORKFLOW</span> INT.</h1>
-          <h2>E S T R A T E G I A , &nbsp; T E C N O L O G Í A &nbsp; Y &nbsp; O P E R A C I Ó N &nbsp; I N T E L I G E N T E</h2>
+          <p className="eyebrow">TRANSFORMAMOS VIDAS Y MODELOS DE NEGOCIO</p>
+          <h1><span>Estrategia,</span> Tecnología y operación inteligente</h1>
           <p className="hero-lead">Diseñamos ecosistemas integrales para la automatización de procesos</p>
           <div className="hero-actions">
             <Link className="button button-primary" href="/servicios">Conoce nuestras soluciones <ArrowUpRight size={18} /></Link>
             <a className="button button-ghost" href="https://wa.me/573005243896">Hablar con un especialista <ArrowUpRight size={18} /></a>
           </div>
-          <p className="site-url">W E A R E W O R K F L O W . C O M</p>
         </div>
-        <div className="hero-art" aria-hidden="true">
-          <img src="/og.png" alt="" />
-        </div>
+        <HeroLottie />
       </section>
 
       <section className="signal-strip" aria-label="Enfoque Workflow">
-        <span>01</span><p>INTELIGENCIA ARTIFICIAL</p><span>02</span><p>SOFTWARE &amp; RPA</p><span>03</span><p>SMART BPO</p><span>04</span><p>CONSULTORÍA</p>
+        <div className="signal-strip-inner">
+          {[
+            ["01", "INTELIGENCIA ARTIFICIAL", "/servicios/inteligencia-artificial"],
+            ["02", "SOFTWARE & RPA", "/servicios/crm-software-rpa"],
+            ["03", "SMART BPO", "/servicios/smart-bpo"],
+            ["04", "CONSULTORÍA", "/servicios/consultoria-interdisciplinar"],
+          ].map(([number, title, href]) => (
+            <Link className="signal-service" href={href} key={number}>
+              <span>{number}</span><p>{title}</p><ArrowUpRight aria-hidden="true" />
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="client-marquee" aria-labelledby="client-marquee-title">
+        <div className="client-marquee-heading">
+          <span>TRAYECTORIA</span>
+          <h2 id="client-marquee-title">Organizaciones que confían en Workflow</h2>
+        </div>
+        <div className="client-marquee-window">
+          <div className="client-marquee-track">
+            {[0, 1].map((copy) => (
+              <div className="client-marquee-group" aria-hidden={copy === 1} key={copy}>
+                {clients.map((client) => (
+                  <span className={`client-logo client-logo-${client.column} client-logo-${client.row}`} key={`${copy}-${client.name}`}>
+                    <img src={client.sheet} alt={copy === 0 ? client.name : ""} />
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section className="section gap-section">
@@ -113,7 +163,7 @@ export default function Home() {
       </section>
 
       <section className="tech-section">
-        <Reveal className="tech-heading"><CloudCog /><div><p className="section-kicker">EXPERIENCIA CERTIFICADA</p><h2>E S P E C I A L I S T A S E N L A T E C N O L O G Í A Q U E L I D E R A A L M U N D O</h2></div></Reveal>
+        <Reveal className="tech-heading"><CloudCog /><div><p className="section-kicker">EXPERIENCIA CERTIFICADA</p><h2>ESPECIALISTAS EN LA TECNOLOGÍA QUE LIDERA AL MUNDO</h2></div></Reveal>
         <div className="marquee"><div>{[...technologyNames, ...technologyNames].map((name, index) => <span key={`${name}-${index}`}>{name}</span>)}</div></div>
       </section>
 
