@@ -1,5 +1,6 @@
 import { sites } from "@openai/sites-vite-plugin";
 import vinext from "vinext";
+import { nitro } from "nitro/vite";
 import { defineConfig } from "vite";
 import hostingConfig from "./.openai/hosting.json";
 
@@ -39,6 +40,18 @@ export default defineConfig(async () => {
   process.env.WRANGLER_WRITE_LOGS ??= "false";
   process.env.WRANGLER_LOG_PATH ??= ".wrangler/logs";
   process.env.MINIFLARE_REGISTRY_PATH ??= ".wrangler/registry";
+
+  // Vercel needs Nitro's Vercel adapter instead of the native Cloudflare
+  // worker output used by the local/Cloudflare preview environment.
+  const isVercelTarget = process.env.VERCEL === "1" || process.env.NITRO_PRESET === "vercel";
+  if (isVercelTarget) {
+    return {
+      server: isCodexSeatbeltSandbox
+        ? { watch: { useFsEvents: false, usePolling: true } }
+        : undefined,
+      plugins: [vinext(), nitro()],
+    };
+  }
 
   // Wrangler snapshots its log path while the Cloudflare plugin is imported.
   const { cloudflare } = await import("@cloudflare/vite-plugin");
