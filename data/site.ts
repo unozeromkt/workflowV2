@@ -229,6 +229,7 @@ export type Client = {
   logo: string;
   width: number;
   focus?: "left" | "right";
+  enhance?: boolean;
 };
 
 export const clients: Client[] = [
@@ -243,7 +244,7 @@ export const clients: Client[] = [
   { name: "Guillermo Rhenals", logo: "/clients/2026/guillermo-rhenals.png", width: 150 },
   { name: "Bogotá", logo: "/clients/2026/bogota.png", width: 154, focus: "right" },
   { name: "Comfandi", logo: "/clients/2026/comfandi.png", width: 276 },
-  { name: "Atenea Multiservicios", logo: "/clients/2026/atenea.png", width: 278 },
+  { name: "Atenea Multiservicios", logo: "/clients/2026/atenea.png", width: 278, enhance: true },
   { name: "AmCham Colombia", logo: "/clients/2026/amcham-colombia.png", width: 270 },
   { name: "Confía", logo: "/clients/2026/confia.png", width: 276 },
   { name: "Comfacundi", logo: "/clients/2026/comfacundi.png", width: 236 },
