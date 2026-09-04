@@ -2,34 +2,12 @@ import Link from "next/link";
 import { ArrowUpRight, BrainCircuit, ChartNoAxesCombined, CircleDollarSign, CloudCog, Compass, Cpu, Headset, ShoppingCart, Sparkles, Unplug, Workflow } from "lucide-react";
 import { FinalCTA } from "@/components/FinalCTA";
 import { HeroLottie } from "@/components/HeroLottie";
+import { IndustryMarquee } from "@/components/IndustryMarquee";
 import { Reveal } from "@/components/Reveal";
-import { industries, methodology, services, technologyNames } from "@/data/site";
+import { clients, services, technologyNames } from "@/data/site";
 
 const serviceIcons = [BrainCircuit, Workflow, ShoppingCart, Headset, Compass];
 const problemIcons = [Unplug, CircleDollarSign, ChartNoAxesCombined];
-const clients = [
-  { name: "902", sheet: "/clients/fadesa.png", column: 1, row: "low" },
-  { name: "Fadesa", sheet: "/clients/fadesa.png", column: 2, row: "low" },
-  { name: "Maxibienes", sheet: "/clients/fadesa.png", column: 3, row: "low" },
-  { name: "Auros", sheet: "/clients/fadesa.png", column: 4, row: "low" },
-  { name: "Grupo UMA", sheet: "/clients/cajamag.png", column: 1, row: "high" },
-  { name: "Cajamag", sheet: "/clients/cajamag.png", column: 2, row: "high" },
-  { name: "Tecnosoluciones", sheet: "/clients/cajamag.png", column: 3, row: "high" },
-  { name: "Fundación Universitaria María Cano", sheet: "/clients/cajamag.png", column: 4, row: "high" },
-  { name: "Reditos", sheet: "/clients/amfora.png", column: 1, row: "low" },
-  { name: "Greater Medellín Convention & Visitors Bureau", sheet: "/clients/amfora.png", column: 2, row: "low" },
-  { name: "South Desk", sheet: "/clients/amfora.png", column: 3, row: "low" },
-  { name: "Amfora Packaging", sheet: "/clients/amfora.png", column: 4, row: "low" },
-  { name: "Universidad Autónoma de Manizales", sheet: "/clients/uam.png", column: 1, row: "low" },
-  { name: "Comfacundi", sheet: "/clients/uam.png", column: 2, row: "low" },
-  { name: "Con Suerte", sheet: "/clients/uam.png", column: 3, row: "low" },
-  { name: "Fundación organizacional", sheet: "/clients/uam.png", column: 4, row: "low" },
-  { name: "EPM", sheet: "/clients/sena.png", column: 1, row: "high" },
-  { name: "Alcaldía de Medellín", sheet: "/clients/sena.png", column: 2, row: "high" },
-  { name: "GAC", sheet: "/clients/sena.png", column: 3, row: "high" },
-  { name: "SENA", sheet: "/clients/sena.png", column: 4, row: "high" },
-];
-
 export default function Home() {
   return (
     <main>
@@ -41,7 +19,6 @@ export default function Home() {
           <p className="hero-lead">Diseñamos ecosistemas integrales para la automatización de procesos</p>
           <div className="hero-actions">
             <Link className="button button-primary" href="/servicios">Conoce nuestras soluciones <ArrowUpRight size={18} /></Link>
-            <a className="button button-ghost" href="https://wa.me/573005243896">Hablar con un especialista <ArrowUpRight size={18} /></a>
           </div>
         </div>
         <HeroLottie />
@@ -65,7 +42,7 @@ export default function Home() {
       <section className="client-marquee" aria-labelledby="client-marquee-title">
         <div className="client-marquee-heading">
           <span>TRAYECTORIA</span>
-          <h2 id="client-marquee-title">Organizaciones que confían en Workflow</h2>
+          <h2 id="client-marquee-title">Algunas organizaciones que confían en Workflow</h2>
         </div>
         <div className="client-marquee-window">
           <div className="client-marquee-track">
@@ -81,6 +58,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <IndustryMarquee />
 
       <section className="section gap-section">
         <Reveal className="gap-layout">
@@ -108,7 +87,6 @@ export default function Home() {
         <Reveal className="about-layout">
           <div className="big-word" aria-hidden="true">WE<br />ARE</div>
           <div className="about-copy">
-            <p className="section-kicker">WE ARE</p>
             <p>Somos una compañía dedicada a potencializar la productividad e impulsar la transformación tecnológica de los modelos de negocio. Nuestro objetivo principal es liberar el máximo potencial de los equipos de trabajo, dejando que la Inteligencia Artificial asuma la carga operativa, mientras el talento humano aporta el criterio estratégico que marca la diferencia.</p>
             <p>Digitalizamos y optimizamos flujos de trabajo en áreas específicas o transversalmente en las organizaciones, entendiendo sus necesidades y apartir de nuestra experiencia interdisciplinar acompañamos las empresas a adoptar soluciones tecnológicas especializadas que den solución a sus problematicas.</p>
             <Link className="text-link" href="/nosotros">Conocer más <ArrowUpRight size={17} /></Link>
@@ -135,7 +113,7 @@ export default function Home() {
             return (
               <Reveal className={`service-card service-card-${index + 1}`} key={service.slug}>
                 <Link href={`/servicios/${service.slug}`}>
-                  <span className="card-number">{service.number}</span><Icon />
+                  <Icon />
                   <h3>{service.title}</h3><ArrowUpRight className="card-arrow" />
                 </Link>
               </Reveal>
@@ -143,23 +121,6 @@ export default function Home() {
           })}
         </div>
         <Link className="text-link dark-link" href="/servicios">Ver servicios <ArrowUpRight size={17} /></Link>
-      </section>
-
-      <section className="industry-band">
-        <Reveal>
-          <p className="section-kicker">EXPERIENCIA WORKFLOW</p>
-          <h2>INDUSTRIAS IMPLEMENTADAS</h2>
-          <div className="industry-ticker">{industries.map(({ title }) => <span key={title}>{title}</span>)}</div>
-          <Link className="text-link" href="/experiencia">Ver experiencia <ArrowUpRight size={17} /></Link>
-        </Reveal>
-      </section>
-
-      <section className="section methodology-section">
-        <Reveal className="center-heading"><p className="section-kicker">METODOLOGÍA</p><h2>METODOLOGÍA WORKFLOW</h2></Reveal>
-        <div className="method-grid">
-          {methodology.map((step, index) => <Reveal className="method-card" key={step.phase}><span>{step.phase}</span><b>0{index + 1}</b><h3>{step.title}</h3><p>{step.text}</p></Reveal>)}
-        </div>
-        <Link className="text-link dark-link method-link" href="/metodologia">Ver metodología <ArrowUpRight size={17} /></Link>
       </section>
 
       <section className="tech-section">

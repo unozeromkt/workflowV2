@@ -224,23 +224,59 @@ export const methodology = [
   { phase: "FASE 4", title: "Optimización", text: "Monitoreo continuo y escalabilidad" },
 ];
 
-export const industries = [
-  { title: "SALUD", text: "Historia clínica, agendamiento médico, seguimiento y control de pacientes estandarizado." },
-  { title: "CAJAS DE COMPENSACIÓN", text: "Automatizamos la carga operativa de afiliaciones, espacios, subsidios y atención al afiliado." },
-  { title: "SECTOR PÚBLICO", text: "Gestionamos asertivamente gobierno corporativo y atención integral al ciudadano." },
-  { title: "TURISMO", text: "Atención, reserva inteligente y gestión al viajero de manera autónoma." },
-  { title: "EDUCACIÓN", text: "Procesos académicos estándar, matricula digital y programas de extensión." },
-  { title: "DEPORTE", text: "Análisis de rendimiento, gestión de membresias y administración de espacios deportivos." },
-  { title: "SERVICIOS PÚBLICOS", text: "Gestión inteligente de PQRs, facturación, proyectos especiales y trámites de usuarios." },
-  { title: "CONSTRUCCIÓN", text: "Implementaciones BIM, seguimiento de obra y administración de especialidades." },
-  { title: "BIENES RAICES", text: "Gestión de prospectos e inmuebles impulsados por pipelines inteligentes." },
-  { title: "AUTOMOTRIZ", text: "Exhibición, tratamiento de pospectos, seguimiento, venta y post-venta centralizada." },
-  { title: "E-COMMERCE", text: "Omnicanalidad, ventas masivas, carritos abandonados gestionados autonomamente, pasarelas de pago y control logístico." },
-  { title: "COMERCIO", text: "Gestión de inventarios, puntos de venta digitales, administración estandarizada de despachos y exportaciones." },
-  { title: "SERVICIOS FINANCIEROS", text: "Verificación de identidad, gestión transaccional, programas de fidelización y atención en redes multiservicio." },
-  { title: "SOFTWARE", text: "Gestión de clientes, administración de proyectos, integración de servicos y desarrollo ágil asistido." },
-  { title: "MANUFACTURA", text: "Optimización de la cadena de suministro y administración de oportunidades de negocio mediante implementaciones potencializadas con IA." },
+export type Client = { name: string; sheet: string; column: number; row: "high" | "low" };
+
+export const clients: Client[] = [
+  { name: "902", sheet: "/clients/fadesa.png", column: 1, row: "low" },
+  { name: "Fadesa", sheet: "/clients/fadesa.png", column: 2, row: "low" },
+  { name: "Maxibienes", sheet: "/clients/fadesa.png", column: 3, row: "low" },
+  { name: "Auros", sheet: "/clients/fadesa.png", column: 4, row: "low" },
+  { name: "Grupo UMA", sheet: "/clients/cajamag.png", column: 1, row: "high" },
+  { name: "Cajamag", sheet: "/clients/cajamag.png", column: 2, row: "high" },
+  { name: "Tecnosoluciones", sheet: "/clients/cajamag.png", column: 3, row: "high" },
+  { name: "Fundación Universitaria María Cano", sheet: "/clients/cajamag.png", column: 4, row: "high" },
+  { name: "Réditos", sheet: "/clients/amfora.png", column: 1, row: "low" },
+  { name: "Greater Medellín Convention & Visitors Bureau", sheet: "/clients/amfora.png", column: 2, row: "low" },
+  { name: "South Desk", sheet: "/clients/amfora.png", column: 3, row: "low" },
+  { name: "Amfora Packaging", sheet: "/clients/amfora.png", column: 4, row: "low" },
+  { name: "Universidad Autónoma de Manizales", sheet: "/clients/uam.png", column: 1, row: "low" },
+  { name: "Comfacundi", sheet: "/clients/uam.png", column: 2, row: "low" },
+  { name: "Con Suerte", sheet: "/clients/uam.png", column: 3, row: "low" },
+  { name: "Fundación organizacional", sheet: "/clients/uam.png", column: 4, row: "low" },
+  { name: "EPM", sheet: "/clients/sena.png", column: 1, row: "high" },
+  { name: "Alcaldía de Medellín", sheet: "/clients/sena.png", column: 2, row: "high" },
+  { name: "GAC", sheet: "/clients/sena.png", column: 3, row: "high" },
+  { name: "SENA", sheet: "/clients/sena.png", column: 4, row: "high" },
 ];
 
-export const locations = ["Medellín, Colombia", "Buenos Aires, Argentina", "Quito, Ecuador", "Madrid, España", "Miami, Estados Unidos", "Lima, Perú", "San Salvador, El Salvador", "Berlín, Alemania"];
+const client = (...names: string[]) => names.map((name) => clients.find((item) => item.name === name)).filter((item): item is Client => Boolean(item));
+
+export const industries = [
+  { title: "SALUD", text: "Historia clínica, agendamiento médico, seguimiento y control de pacientes estandarizado.", clients: client("Fadesa", "Auros") },
+  { title: "CAJAS DE COMPENSACIÓN", text: "Automatizamos la carga operativa de afiliaciones, espacios, subsidios y atención al afiliado.", clients: client("Cajamag", "Comfacundi") },
+  { title: "SECTOR PÚBLICO", text: "Gestionamos asertivamente gobierno corporativo y atención integral al ciudadano.", clients: client("Alcaldía de Medellín", "SENA") },
+  { title: "TURISMO", text: "Atención, reserva inteligente y gestión al viajero de manera autónoma.", clients: client("Greater Medellín Convention & Visitors Bureau", "South Desk") },
+  { title: "EDUCACIÓN", text: "Procesos académicos estándar, matrícula digital y programas de extensión.", clients: client("Fundación Universitaria María Cano", "Universidad Autónoma de Manizales", "SENA") },
+  { title: "DEPORTE", text: "Análisis de rendimiento, gestión de membresías y administración de espacios deportivos.", clients: client("GAC") },
+  { title: "SERVICIOS PÚBLICOS", text: "Gestión inteligente de PQRs, facturación, proyectos especiales y trámites de usuarios.", clients: client("EPM") },
+  { title: "CONSTRUCCIÓN", text: "Implementaciones BIM, seguimiento de obra y administración de especialidades.", clients: client("Fadesa") },
+  { title: "BIENES RAÍCES", text: "Gestión de prospectos e inmuebles impulsados por pipelines inteligentes.", clients: client("Maxibienes") },
+  { title: "AUTOMOTRIZ", text: "Exhibición, tratamiento de prospectos, seguimiento, venta y posventa centralizada.", clients: client("Grupo UMA") },
+  { title: "E-COMMERCE", text: "Omnicanalidad, ventas masivas, carritos abandonados gestionados autónomamente, pasarelas de pago y control logístico.", clients: client("902", "Réditos") },
+  { title: "COMERCIO", text: "Gestión de inventarios, puntos de venta digitales, administración estandarizada de despachos y exportaciones.", clients: client("Con Suerte", "902") },
+  { title: "SERVICIOS FINANCIEROS", text: "Verificación de identidad, gestión transaccional, programas de fidelización y atención en redes multiservicio.", clients: client("Réditos", "Con Suerte") },
+  { title: "SOFTWARE", text: "Gestión de clientes, administración de proyectos, integración de servicios y desarrollo ágil asistido.", clients: client("Tecnosoluciones") },
+  { title: "MANUFACTURA", text: "Optimización de la cadena de suministro y administración de oportunidades de negocio mediante implementaciones potencializadas con IA.", clients: client("Amfora Packaging") },
+];
+
+export const locations = [
+  { city: "Medellín", country: "Colombia", flag: "🇨🇴" },
+  { city: "Buenos Aires", country: "Argentina", flag: "🇦🇷" },
+  { city: "Quito", country: "Ecuador", flag: "🇪🇨" },
+  { city: "Madrid", country: "España", flag: "🇪🇸" },
+  { city: "Miami", country: "Estados Unidos", flag: "🇺🇸" },
+  { city: "Lima", country: "Perú", flag: "🇵🇪" },
+  { city: "San Salvador", country: "El Salvador", flag: "🇸🇻" },
+  { city: "Berlín", country: "Alemania", flag: "🇩🇪" },
+];
 export const technologyNames = ["OpenAI", "deepseek", "AWS", "IBM Watson", "Bitrix24", "Microsoft Azure", "Google Cloud", "Anthropic", "Zapier", "GitHub"];

@@ -19,8 +19,7 @@ export default function ServicesPage() {
           return (
             <Reveal key={service.slug} className="service-row">
               <Link href={`/servicios/${service.slug}`}>
-                <span className="service-row-number">{service.number}</span><Icon />
-                <h2>{service.title}</h2><ArrowUpRight />
+                <Icon /><h2>{service.title}</h2><ArrowUpRight />
               </Link>
             </Reveal>
           );

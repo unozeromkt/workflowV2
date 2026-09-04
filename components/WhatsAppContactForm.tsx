@@ -23,7 +23,7 @@ export function WhatsAppContactForm() {
     <form className="whatsapp-form" onSubmit={handleSubmit}>
       <div className="whatsapp-form-heading">
         <span>01 / PRIMER CONTACTO</span>
-        <h2>Armemos el punto de partida.</h2>
+        <h2>Diseñemos una estrategia para tu negocio.</h2>
       </div>
 
       <div className="form-field">

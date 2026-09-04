@@ -28,7 +28,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
   if (!service) notFound();
   return (
     <main>
-      <PageHero eyebrow={service.number} title={service.heroLines?.join(" · ") ?? service.title} service />
+      <PageHero title={service.heroLines?.join(" · ") ?? service.title} service />
       <nav className="section-nav" aria-label="Secciones del servicio">
         {service.sections.map((section, index) => <a key={section.title} href={`#section-${index + 1}`}><span>0{index + 1}</span>{section.title}</a>)}
       </nav>
@@ -37,7 +37,14 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
           <section className={index % 2 ? "service-block service-block-alt" : "service-block"} id={`section-${index + 1}`} key={section.title}>
             <Reveal className="service-block-heading">
               <span>{String(index + 1).padStart(2, "0")}</span>
-              <div><h2>{section.title}</h2>{section.subtitle && <h3>{section.subtitle}</h3>}{section.phrase && <p className="phrase">{section.phrase}</p>}{section.intro && <p>{section.intro}</p>}</div>
+              <div>
+                {service.slug === "crm-software-rpa" && index === 0 && (
+                  <a className="service-bitrix-badge" href="https://www.bitrix24.co/partners/?ID=11605791" target="_blank" rel="noreferrer" aria-label="Ver perfil Gold Partner de Workflow en Bitrix24">
+                    <img src="/bitrix24-gold-partner.png" alt="Bitrix24 Gold Partner" />
+                  </a>
+                )}
+                <h2>{section.title}</h2>{section.subtitle && <h3>{section.subtitle}</h3>}{section.phrase && <p className="phrase">{section.phrase}</p>}{section.intro && <p>{section.intro}</p>}
+              </div>
             </Reveal>
             <div className="feature-grid">
               {section.groups.map((group) => (
