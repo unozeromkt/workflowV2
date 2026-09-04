@@ -1,9 +1,12 @@
+import type { CSSProperties } from "react";
 import type { Client } from "@/data/site";
 
-export function ClientLogo({ client, compact = false }: { client: Client; compact?: boolean }) {
+export function ClientLogo({ client, compact = false, decorative = false }: { client: Client; compact?: boolean; decorative?: boolean }) {
+  const classes = ["client-logo", compact && "client-logo-compact", client.focus && `client-logo-focus-${client.focus}`].filter(Boolean).join(" ");
+
   return (
-    <span className={`client-logo client-logo-${client.column} client-logo-${client.row}${compact ? " client-logo-compact" : ""}`}>
-      <img src={client.sheet} alt={client.name} />
+    <span className={classes} style={{ "--client-logo-width": `${client.width}px` } as CSSProperties}>
+      <img src={client.logo} alt={decorative ? "" : client.name} loading="lazy" />
     </span>
   );
 }

@@ -19,9 +19,11 @@ export default function ExperiencePage() {
           return (
             <Reveal className="industry-card" key={industry.title} tabIndex={0}>
               <span>{String(index + 1).padStart(2, "0")}</span><Icon /><h2>{industry.title}</h2><p>{industry.text}</p>
-              <div className="industry-clients" aria-label={`Clientes relacionados con ${industry.title}`}>
-                {industry.clients.map((item) => <ClientLogo client={item} compact key={item.name} />)}
-              </div>
+              {industry.clients.length > 0 && (
+                <div className="industry-clients" aria-label={`Clientes relacionados con ${industry.title}`}>
+                  {industry.clients.map((item) => <ClientLogo client={item} compact key={item.name} />)}
+                </div>
+              )}
             </Reveal>
           );
         })}

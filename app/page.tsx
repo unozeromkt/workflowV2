@@ -3,6 +3,7 @@ import { ArrowUpRight, BrainCircuit, ChartNoAxesCombined, CircleDollarSign, Clou
 import { FinalCTA } from "@/components/FinalCTA";
 import { HeroLottie } from "@/components/HeroLottie";
 import { IndustryMarquee } from "@/components/IndustryMarquee";
+import { ClientLogo } from "@/components/ClientLogo";
 import { Reveal } from "@/components/Reveal";
 import { clients, services, technologyNames } from "@/data/site";
 
@@ -49,9 +50,7 @@ export default function Home() {
             {[0, 1].map((copy) => (
               <div className="client-marquee-group" aria-hidden={copy === 1} key={copy}>
                 {clients.map((client) => (
-                  <span className={`client-logo client-logo-${client.column} client-logo-${client.row}`} key={`${copy}-${client.name}`}>
-                    <img src={client.sheet} alt={copy === 0 ? client.name : ""} />
-                  </span>
+                  <ClientLogo client={client} decorative={copy === 1} key={`${copy}-${client.name}`} />
                 ))}
               </div>
             ))}

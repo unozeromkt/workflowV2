@@ -224,49 +224,52 @@ export const methodology = [
   { phase: "FASE 4", title: "Optimización", text: "Monitoreo continuo y escalabilidad" },
 ];
 
-export type Client = { name: string; sheet: string; column: number; row: "high" | "low" };
+export type Client = {
+  name: string;
+  logo: string;
+  width: number;
+  focus?: "left" | "right";
+};
 
 export const clients: Client[] = [
-  { name: "902", sheet: "/clients/fadesa.png", column: 1, row: "low" },
-  { name: "Fadesa", sheet: "/clients/fadesa.png", column: 2, row: "low" },
-  { name: "Maxibienes", sheet: "/clients/fadesa.png", column: 3, row: "low" },
-  { name: "Auros", sheet: "/clients/fadesa.png", column: 4, row: "low" },
-  { name: "Grupo UMA", sheet: "/clients/cajamag.png", column: 1, row: "high" },
-  { name: "Cajamag", sheet: "/clients/cajamag.png", column: 2, row: "high" },
-  { name: "Tecnosoluciones", sheet: "/clients/cajamag.png", column: 3, row: "high" },
-  { name: "Fundación Universitaria María Cano", sheet: "/clients/cajamag.png", column: 4, row: "high" },
-  { name: "Réditos", sheet: "/clients/amfora.png", column: 1, row: "low" },
-  { name: "Greater Medellín Convention & Visitors Bureau", sheet: "/clients/amfora.png", column: 2, row: "low" },
-  { name: "South Desk", sheet: "/clients/amfora.png", column: 3, row: "low" },
-  { name: "Amfora Packaging", sheet: "/clients/amfora.png", column: 4, row: "low" },
-  { name: "Universidad Autónoma de Manizales", sheet: "/clients/uam.png", column: 1, row: "low" },
-  { name: "Comfacundi", sheet: "/clients/uam.png", column: 2, row: "low" },
-  { name: "Con Suerte", sheet: "/clients/uam.png", column: 3, row: "low" },
-  { name: "Fundación organizacional", sheet: "/clients/uam.png", column: 4, row: "low" },
-  { name: "EPM", sheet: "/clients/sena.png", column: 1, row: "high" },
-  { name: "Alcaldía de Medellín", sheet: "/clients/sena.png", column: 2, row: "high" },
-  { name: "GAC", sheet: "/clients/sena.png", column: 3, row: "high" },
-  { name: "SENA", sheet: "/clients/sena.png", column: 4, row: "high" },
+  { name: "Grupo Sura", logo: "/clients/2026/grupo-sura.png", width: 260 },
+  { name: "Alcaldía de Medellín", logo: "/clients/2026/alcaldia-medellin.png", width: 278 },
+  { name: "Comfaboy", logo: "/clients/2026/comfaboy.png", width: 270 },
+  { name: "Imcolmédica", logo: "/clients/2026/imcolmedica.png", width: 286 },
+  { name: "Escudo institucional", logo: "/clients/2026/escudo-institucional.png", width: 154, focus: "left" },
+  { name: "Cajamag", logo: "/clients/2026/cajamag.png", width: 270 },
+  { name: "Comfenalco Antioquia", logo: "/clients/2026/comfenalco-antioquia.png", width: 268 },
+  { name: "Suplemédicos", logo: "/clients/2026/suplemedicos.png", width: 286 },
+  { name: "Guillermo Rhenals", logo: "/clients/2026/guillermo-rhenals.png", width: 150 },
+  { name: "Bogotá", logo: "/clients/2026/bogota.png", width: 154, focus: "right" },
+  { name: "Comfandi", logo: "/clients/2026/comfandi.png", width: 276 },
+  { name: "Atenea Multiservicios", logo: "/clients/2026/atenea.png", width: 278 },
+  { name: "AmCham Colombia", logo: "/clients/2026/amcham-colombia.png", width: 270 },
+  { name: "Confía", logo: "/clients/2026/confia.png", width: 276 },
+  { name: "Comfacundi", logo: "/clients/2026/comfacundi.png", width: 236 },
+  { name: "Greater Medellín Convention & Visitors Bureau", logo: "/clients/2026/greater-medellin.png", width: 278 },
+  { name: "EPM", logo: "/clients/2026/epm.png", width: 228 },
+  { name: "Auros", logo: "/clients/2026/auros.png", width: 270 },
 ];
 
 const client = (...names: string[]) => names.map((name) => clients.find((item) => item.name === name)).filter((item): item is Client => Boolean(item));
 
 export const industries = [
-  { title: "SALUD", text: "Historia clínica, agendamiento médico, seguimiento y control de pacientes estandarizado.", clients: client("Fadesa", "Auros") },
-  { title: "CAJAS DE COMPENSACIÓN", text: "Automatizamos la carga operativa de afiliaciones, espacios, subsidios y atención al afiliado.", clients: client("Cajamag", "Comfacundi") },
-  { title: "SECTOR PÚBLICO", text: "Gestionamos asertivamente gobierno corporativo y atención integral al ciudadano.", clients: client("Alcaldía de Medellín", "SENA") },
-  { title: "TURISMO", text: "Atención, reserva inteligente y gestión al viajero de manera autónoma.", clients: client("Greater Medellín Convention & Visitors Bureau", "South Desk") },
-  { title: "EDUCACIÓN", text: "Procesos académicos estándar, matrícula digital y programas de extensión.", clients: client("Fundación Universitaria María Cano", "Universidad Autónoma de Manizales", "SENA") },
-  { title: "DEPORTE", text: "Análisis de rendimiento, gestión de membresías y administración de espacios deportivos.", clients: client("GAC") },
+  { title: "SALUD", text: "Historia clínica, agendamiento médico, seguimiento y control de pacientes estandarizado.", clients: client("Grupo Sura", "Imcolmédica", "Suplemédicos", "Auros") },
+  { title: "CAJAS DE COMPENSACIÓN", text: "Automatizamos la carga operativa de afiliaciones, espacios, subsidios y atención al afiliado.", clients: client("Comfaboy", "Cajamag", "Comfenalco Antioquia", "Comfandi", "Comfacundi") },
+  { title: "SECTOR PÚBLICO", text: "Gestionamos asertivamente gobierno corporativo y atención integral al ciudadano.", clients: client("Alcaldía de Medellín", "Bogotá", "Escudo institucional") },
+  { title: "TURISMO", text: "Atención, reserva inteligente y gestión al viajero de manera autónoma.", clients: client("Greater Medellín Convention & Visitors Bureau") },
+  { title: "EDUCACIÓN", text: "Procesos académicos estándar, matrícula digital y programas de extensión.", clients: client("Atenea Multiservicios") },
+  { title: "DEPORTE", text: "Análisis de rendimiento, gestión de membresías y administración de espacios deportivos.", clients: client() },
   { title: "SERVICIOS PÚBLICOS", text: "Gestión inteligente de PQRs, facturación, proyectos especiales y trámites de usuarios.", clients: client("EPM") },
-  { title: "CONSTRUCCIÓN", text: "Implementaciones BIM, seguimiento de obra y administración de especialidades.", clients: client("Fadesa") },
-  { title: "BIENES RAÍCES", text: "Gestión de prospectos e inmuebles impulsados por pipelines inteligentes.", clients: client("Maxibienes") },
-  { title: "AUTOMOTRIZ", text: "Exhibición, tratamiento de prospectos, seguimiento, venta y posventa centralizada.", clients: client("Grupo UMA") },
-  { title: "E-COMMERCE", text: "Omnicanalidad, ventas masivas, carritos abandonados gestionados autónomamente, pasarelas de pago y control logístico.", clients: client("902", "Réditos") },
-  { title: "COMERCIO", text: "Gestión de inventarios, puntos de venta digitales, administración estandarizada de despachos y exportaciones.", clients: client("Con Suerte", "902") },
-  { title: "SERVICIOS FINANCIEROS", text: "Verificación de identidad, gestión transaccional, programas de fidelización y atención en redes multiservicio.", clients: client("Réditos", "Con Suerte") },
-  { title: "SOFTWARE", text: "Gestión de clientes, administración de proyectos, integración de servicios y desarrollo ágil asistido.", clients: client("Tecnosoluciones") },
-  { title: "MANUFACTURA", text: "Optimización de la cadena de suministro y administración de oportunidades de negocio mediante implementaciones potencializadas con IA.", clients: client("Amfora Packaging") },
+  { title: "CONSTRUCCIÓN", text: "Implementaciones BIM, seguimiento de obra y administración de especialidades.", clients: client() },
+  { title: "BIENES RAÍCES", text: "Gestión de prospectos e inmuebles impulsados por pipelines inteligentes.", clients: client() },
+  { title: "AUTOMOTRIZ", text: "Exhibición, tratamiento de prospectos, seguimiento, venta y posventa centralizada.", clients: client() },
+  { title: "E-COMMERCE", text: "Omnicanalidad, ventas masivas, carritos abandonados gestionados autónomamente, pasarelas de pago y control logístico.", clients: client() },
+  { title: "COMERCIO", text: "Gestión de inventarios, puntos de venta digitales, administración estandarizada de despachos y exportaciones.", clients: client("AmCham Colombia", "Greater Medellín Convention & Visitors Bureau") },
+  { title: "SERVICIOS FINANCIEROS", text: "Verificación de identidad, gestión transaccional, programas de fidelización y atención en redes multiservicio.", clients: client("Grupo Sura", "Confía") },
+  { title: "SOFTWARE", text: "Gestión de clientes, administración de proyectos, integración de servicios y desarrollo ágil asistido.", clients: client() },
+  { title: "MANUFACTURA", text: "Optimización de la cadena de suministro y administración de oportunidades de negocio mediante implementaciones potencializadas con IA.", clients: client("Guillermo Rhenals") },
 ];
 
 export const locations = [

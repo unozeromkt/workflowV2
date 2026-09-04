@@ -25,6 +25,9 @@ test("server-renders the updated home experience", async () => {
   assert.match(html, />WE ARE<\/a>/);
   assert.match(html, />Contacto<\/a>/);
   assert.match(html, /Algunas organizaciones que confían en Workflow/);
+  assert.match(html, /clients\/2026\/grupo-sura\.png/);
+  assert.match(html, /clients\/2026\/auros\.png/);
+  assert.doesNotMatch(html, /clients\/fadesa\.png/);
   assert.match(html, /INDUSTRIAS IMPLEMENTADAS/);
   assert.match(html, /industries-01-05\.png/);
   assert.match(html, /bitrix24\.co\/partners\/\?ID=11605791/);
