@@ -27,6 +27,7 @@ test("server-renders the updated home experience", async () => {
   assert.match(html, /Algunas organizaciones que confían en Workflow/);
   assert.match(html, /clients\/2026\/grupo-sura\.png/);
   assert.match(html, /clients\/2026\/auros\.png/);
+  assert.match(html, /clients\/2026\/uam\.svg/);
   assert.doesNotMatch(html, /clients\/fadesa\.png/);
   assert.match(html, /INDUSTRIAS IMPLEMENTADAS/);
   assert.match(html, /industries-01-05\.png/);
@@ -52,6 +53,7 @@ test("renders sector client logos and Bitrix partner proof", async () => {
   assert.match(experience, /industry-clients/);
   assert.match(experience, /Cajamag/);
   assert.match(experience, /Alcaldía de Medellín/);
+  assert.match(experience, /Alcaldía Mayor de Tunja/);
 
   const crm = await htmlFor("/servicios/crm-software-rpa");
   assert.match(crm, /service-bitrix-badge/);
