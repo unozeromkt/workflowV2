@@ -229,12 +229,12 @@ export type Client = {
   logo: string;
   width: number;
   focus?: "left" | "right";
-  enhance?: boolean;
+  surface?: "dark";
 };
 
 export const clients: Client[] = [
   { name: "Grupo Sura", logo: "/clients/2026/grupo-sura.png", width: 260 },
-  { name: "Alcaldía de Medellín", logo: "/clients/2026/alcaldia-medellin.png", width: 278 },
+  { name: "Alcaldía de Medellín", logo: "/clients/2026/alcaldia-medellin.png", width: 278, surface: "dark" },
   { name: "Comfaboy", logo: "/clients/2026/comfaboy.png", width: 270 },
   { name: "Imcolmédica", logo: "/clients/2026/imcolmedica.png", width: 286 },
   { name: "Escudo institucional", logo: "/clients/2026/escudo-institucional.png", width: 154, focus: "left" },
@@ -242,11 +242,11 @@ export const clients: Client[] = [
   { name: "Comfenalco Antioquia", logo: "/clients/2026/comfenalco-antioquia.png", width: 268 },
   { name: "Suplemédicos", logo: "/clients/2026/suplemedicos.png", width: 286 },
   { name: "Guillermo Rhenals", logo: "/clients/2026/guillermo-rhenals.png", width: 150 },
-  { name: "Bogotá", logo: "/clients/2026/bogota.png", width: 154, focus: "right" },
+  { name: "Bogotá", logo: "/clients/2026/bogota.png", width: 278, surface: "dark" },
   { name: "Comfandi", logo: "/clients/2026/comfandi.png", width: 276 },
-  { name: "Atenea Multiservicios", logo: "/clients/2026/atenea.png", width: 278, enhance: true },
-  { name: "AmCham Colombia", logo: "/clients/2026/amcham-colombia.png", width: 270 },
-  { name: "Confía", logo: "/clients/2026/confia.png", width: 276 },
+  { name: "Atenea Multiservicios", logo: "/clients/2026/atenea.svg", width: 278, surface: "dark" },
+  { name: "AmCham Colombia", logo: "/clients/2026/amcham-colombia.png", width: 270, surface: "dark" },
+  { name: "Confía", logo: "/clients/2026/confia.png", width: 276, surface: "dark" },
   { name: "Comfacundi", logo: "/clients/2026/comfacundi.png", width: 236 },
   { name: "Greater Medellín Convention & Visitors Bureau", logo: "/clients/2026/greater-medellin.png", width: 278 },
   { name: "EPM", logo: "/clients/2026/epm.png", width: 228 },
