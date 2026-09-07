@@ -84,6 +84,7 @@ test("renders sector client logos and Bitrix partner proof", async () => {
   ]) {
     assert.match(artificialIntelligence, new RegExp(image.replace(".", "\\.")));
   }
+  assert.match(artificialIntelligence, /<title>Workflow International \| Soluciones integrales con IA<\/title>/);
 });
 
 test("renders the reorganized contact form and flag locations", async () => {
