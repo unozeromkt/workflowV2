@@ -13,9 +13,12 @@ export function generateStaticParams() { return services.map(({ slug }) => ({ sl
 
 const serviceVisuals: Record<string, Array<{ src: string; size: string; position: string }>> = {
   "inteligencia-artificial": [
-    { src: "/industries/industries-01-05.png", size: "500% auto", position: "0% center" },
-    { src: "/industries/industries-06-10.png", size: "500% auto", position: "50% center" },
-    { src: "/editorial/methodology-phases.png", size: "400% auto", position: "100% center" },
+    { src: "/services/artificial-intelligence/sales-front-office.png", size: "cover", position: "center" },
+    { src: "/services/artificial-intelligence/hr-tech.png", size: "cover", position: "center" },
+    { src: "/services/artificial-intelligence/finance-legal.png", size: "cover", position: "center" },
+    { src: "/services/artificial-intelligence/intelligent-workflows.png", size: "cover", position: "center" },
+    { src: "/services/artificial-intelligence/field-iot.png", size: "cover", position: "center" },
+    { src: "/services/artificial-intelligence/executive-analytics.png", size: "cover", position: "center" },
   ],
   "crm-software-rpa": [
     { src: "/editorial/methodology-phases.png", size: "400% auto", position: "33.333% center" },

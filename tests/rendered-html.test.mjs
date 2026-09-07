@@ -72,6 +72,18 @@ test("renders sector client logos and Bitrix partner proof", async () => {
   assert.match(crm, /service-visual/);
   assert.doesNotMatch(crm, /<span>01<\/span>/);
   assert.match(crm, /bitrix24\.co\/partners\/\?ID=11605791/);
+
+  const artificialIntelligence = await htmlFor("/servicios/inteligencia-artificial");
+  for (const image of [
+    "sales-front-office.png",
+    "hr-tech.png",
+    "finance-legal.png",
+    "intelligent-workflows.png",
+    "field-iot.png",
+    "executive-analytics.png",
+  ]) {
+    assert.match(artificialIntelligence, new RegExp(image.replace(".", "\\.")));
+  }
 });
 
 test("renders the reorganized contact form and flag locations", async () => {
