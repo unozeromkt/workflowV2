@@ -31,6 +31,8 @@ test("server-renders the updated home experience", async () => {
   assert.doesNotMatch(html, /clients\/fadesa\.png/);
   assert.match(html, /INDUSTRIAS IMPLEMENTADAS/);
   assert.match(html, /industries-01-05\.png/);
+  assert.match(html, /Soluciones integrales de/);
+  assert.doesNotMatch(html, /Atenea Multiservicios/);
   assert.match(html, /bitrix24\.co\/partners\/\?ID=11605791/);
   assert.doesNotMatch(html, /<section class="section methodology-section">/);
   assert.doesNotMatch(html, /class="card-number"/);
@@ -44,6 +46,8 @@ test("integrates methodology and international presence into WE ARE", async () =
   assert.match(html, /METODOLOGÍA WORKFLOW/);
   assert.match(html, /methodology-editorial-image/);
   assert.match(html, /we-are-team\.png/);
+  assert.doesNotMatch(html, /editorial-number/);
+  assert.match(html, /location-presence-layout/);
   assert.match(html, /Medellín/);
   assert.match(html, /Buenos Aires/);
 });
@@ -54,10 +58,14 @@ test("renders sector client logos and Bitrix partner proof", async () => {
   assert.match(experience, /Cajamag/);
   assert.match(experience, /Alcaldía de Medellín/);
   assert.match(experience, /Alcaldía Mayor de Tunja/);
+  assert.match(experience, /industry-card-image/);
 
   const crm = await htmlFor("/servicios/crm-software-rpa");
   assert.match(crm, /service-bitrix-badge/);
-  assert.match(crm, /Bitrix24 Gold Partner/);
+  assert.match(crm, /Bitrix24 Certified Gold Partner/);
+  assert.match(crm, /bitrix24-certified-gold-partner\.png/);
+  assert.match(crm, /service-visual/);
+  assert.doesNotMatch(crm, /<span>01<\/span>/);
   assert.match(crm, /bitrix24\.co\/partners\/\?ID=11605791/);
 });
 
@@ -66,5 +74,7 @@ test("renders the reorganized contact form and flag locations", async () => {
   assert.match(html, /Diseñemos una estrategia para tu negocio/);
   assert.match(html, /location-flag/);
   assert.match(html, /Estrategia global, acompañamiento cercano/);
-  assert.match(html, /info@weareworkflow\.com/);
+  assert.match(html, /mailto:info@workflowteams\.com/);
+  assert.match(html, /info@workflowteams\.com/);
+  assert.doesNotMatch(html, /WEAREWORKFLOW\.COM/);
 });

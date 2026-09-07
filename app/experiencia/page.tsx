@@ -5,6 +5,7 @@ import { FinalCTA } from "@/components/FinalCTA";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { industries } from "@/data/site";
+import { industryImageStyle } from "@/components/IndustryVisual";
 
 export const metadata: Metadata = { title: "Experiencia Workflow", description: "EXPERIENCIA WORKFLOW · INDUSTRIAS IMPLEMENTADAS" };
 const icons = [HeartPulse, HandHeart, Landmark, Plane, GraduationCap, Dumbbell, Bolt, HardHat, Building2, Car, ShoppingCart, Store, BadgeDollarSign, CodeXml, Factory];
@@ -18,7 +19,8 @@ export default function ExperiencePage() {
           const Icon = icons[index];
           return (
             <Reveal className="industry-card" key={industry.title} tabIndex={0}>
-              <span>{String(index + 1).padStart(2, "0")}</span><Icon /><h2>{industry.title}</h2><p>{industry.text}</p>
+              <div className="industry-card-image" style={industryImageStyle(index)} />
+              <div className="industry-card-body"><Icon /><h2>{industry.title}</h2><p>{industry.text}</p></div>
               {industry.clients.length > 0 && (
                 <div className="industry-clients" aria-label={`Clientes relacionados con ${industry.title}`}>
                   {industry.clients.map((item) => <ClientLogo client={item} compact key={item.name} />)}

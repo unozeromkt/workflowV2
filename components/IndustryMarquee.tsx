@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { industries } from "@/data/site";
+import { industryImageStyle } from "@/components/IndustryVisual";
 
 function IndustryCards({ copy }: { copy: number }) {
   return (
@@ -9,12 +10,9 @@ function IndustryCards({ copy }: { copy: number }) {
         <article className="industry-slide" key={`${copy}-${industry.title}`}>
           <div
             className="industry-slide-image"
-            style={{
-              backgroundImage: `url(/industries/industries-${String(Math.floor(index / 5) * 5 + 1).padStart(2, "0")}-${String(Math.floor(index / 5) * 5 + 5).padStart(2, "0")}.png)`,
-              backgroundPosition: `${(index % 5) * 25}% center`,
-            }}
+            style={industryImageStyle(index)}
           />
-          <div className="industry-slide-copy"><span>{String(index + 1).padStart(2, "0")}</span><h3>{industry.title}</h3></div>
+          <div className="industry-slide-copy"><h3>{industry.title}</h3></div>
         </article>
       ))}
     </div>

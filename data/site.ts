@@ -230,6 +230,7 @@ export type Client = {
   width: number;
   focus?: "left" | "right";
   surface?: "dark";
+  scale?: number;
 };
 
 export const clients: Client[] = [
@@ -244,11 +245,10 @@ export const clients: Client[] = [
   { name: "Guillermo Rhenals", logo: "/clients/2026/guillermo-rhenals.png", width: 150 },
   { name: "Bogotá", logo: "/clients/2026/bogota.png", width: 278, surface: "dark" },
   { name: "Comfandi", logo: "/clients/2026/comfandi.png", width: 276 },
-  { name: "Atenea Multiservicios", logo: "/clients/2026/atenea.svg", width: 278, surface: "dark" },
   { name: "Universidad Autónoma de Manizales", logo: "/clients/2026/uam.svg", width: 248, surface: "dark" },
   { name: "AmCham Colombia", logo: "/clients/2026/amcham-colombia.png", width: 270, surface: "dark" },
   { name: "Confía", logo: "/clients/2026/confia.png", width: 276, surface: "dark" },
-  { name: "Comfacundi", logo: "/clients/2026/comfacundi.png", width: 236 },
+  { name: "Comfacundi", logo: "/clients/2026/comfacundi.png", width: 236, scale: 0.8 },
   { name: "Greater Medellín Convention & Visitors Bureau", logo: "/clients/2026/greater-medellin.png", width: 278 },
   { name: "EPM", logo: "/clients/2026/epm.png", width: 228 },
   { name: "Auros", logo: "/clients/2026/auros.png", width: 270 },
@@ -261,7 +261,7 @@ export const industries = [
   { title: "CAJAS DE COMPENSACIÓN", text: "Automatizamos la carga operativa de afiliaciones, espacios, subsidios y atención al afiliado.", clients: client("Comfaboy", "Cajamag", "Comfenalco Antioquia", "Comfandi", "Comfacundi") },
   { title: "SECTOR PÚBLICO", text: "Gestionamos asertivamente gobierno corporativo y atención integral al ciudadano.", clients: client("Alcaldía de Medellín", "Bogotá", "Alcaldía Mayor de Tunja") },
   { title: "TURISMO", text: "Atención, reserva inteligente y gestión al viajero de manera autónoma.", clients: client("Greater Medellín Convention & Visitors Bureau") },
-  { title: "EDUCACIÓN", text: "Procesos académicos estándar, matrícula digital y programas de extensión.", clients: client("Atenea Multiservicios", "Universidad Autónoma de Manizales") },
+  { title: "EDUCACIÓN", text: "Procesos académicos estándar, matrícula digital y programas de extensión.", clients: client("Universidad Autónoma de Manizales") },
   { title: "DEPORTE", text: "Análisis de rendimiento, gestión de membresías y administración de espacios deportivos.", clients: client() },
   { title: "SERVICIOS PÚBLICOS", text: "Gestión inteligente de PQRs, facturación, proyectos especiales y trámites de usuarios.", clients: client("EPM") },
   { title: "CONSTRUCCIÓN", text: "Implementaciones BIM, seguimiento de obra y administración de especialidades.", clients: client() },

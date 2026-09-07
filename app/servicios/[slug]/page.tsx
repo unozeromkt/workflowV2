@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Check } from "lucide-react";
+import type { CSSProperties } from "react";
+import Link from "next/link";
+import { ArrowUpRight, Check } from "lucide-react";
 import { FeatureIcon } from "@/components/FeatureIcon";
 import { FinalCTA } from "@/components/FinalCTA";
 import { PageHero } from "@/components/PageHero";
@@ -8,6 +10,35 @@ import { Reveal } from "@/components/Reveal";
 import { services } from "@/data/site";
 
 export function generateStaticParams() { return services.map(({ slug }) => ({ slug })); }
+
+const serviceVisuals: Record<string, Array<{ src: string; size: string; position: string }>> = {
+  "inteligencia-artificial": [
+    { src: "/industries/industries-01-05.png", size: "500% auto", position: "0% center" },
+    { src: "/industries/industries-06-10.png", size: "500% auto", position: "50% center" },
+    { src: "/editorial/methodology-phases.png", size: "400% auto", position: "100% center" },
+  ],
+  "crm-software-rpa": [
+    { src: "/editorial/methodology-phases.png", size: "400% auto", position: "33.333% center" },
+    { src: "/industries/industries-11-15.png", size: "500% auto", position: "75% center" },
+    { src: "/editorial/methodology-phases.png", size: "400% auto", position: "66.666% center" },
+  ],
+  "ai-websites-ecommerce": [
+    { src: "/industries/industries-11-15.png", size: "500% auto", position: "0% center" },
+    { src: "/industries/industries-11-15.png", size: "500% auto", position: "25% center" },
+    { src: "/industries/industries-11-15.png", size: "500% auto", position: "75% center" },
+  ],
+  "smart-bpo": [{ src: "/industries/industries-01-05.png", size: "500% auto", position: "50% center" }],
+  "consultoria-interdisciplinar": [
+    { src: "/editorial/methodology-phases.png", size: "400% auto", position: "0% center" },
+    { src: "/editorial/methodology-phases.png", size: "400% auto", position: "66.666% center" },
+  ],
+};
+
+function visualStyle(slug: string, index: number): CSSProperties {
+  const visuals = serviceVisuals[slug] ?? serviceVisuals["inteligencia-artificial"];
+  const visual = visuals[index % visuals.length];
+  return { backgroundImage: `url(${visual.src})`, backgroundSize: visual.size, backgroundPosition: visual.position };
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
@@ -30,22 +61,23 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
     <main>
       <PageHero title={service.heroLines?.join(" · ") ?? service.title} service />
       <nav className="section-nav" aria-label="Secciones del servicio">
-        {service.sections.map((section, index) => <a key={section.title} href={`#section-${index + 1}`}><span>0{index + 1}</span>{section.title}</a>)}
+        {service.sections.map((section, index) => <a key={section.title} href={`#section-${index + 1}`}>{section.title}</a>)}
       </nav>
       <div className="service-detail">
         {service.sections.map((section, index) => (
           <section className={index % 2 ? "service-block service-block-alt" : "service-block"} id={`section-${index + 1}`} key={section.title}>
-            <Reveal className="service-block-heading">
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <div>
+            <div className="service-section-lead">
+              <Reveal className="service-block-heading">
                 {service.slug === "crm-software-rpa" && index === 0 && (
                   <a className="service-bitrix-badge" href="https://www.bitrix24.co/partners/?ID=11605791" target="_blank" rel="noreferrer" aria-label="Ver perfil Gold Partner de Workflow en Bitrix24">
-                    <img src="/bitrix24-gold-partner.png" alt="Bitrix24 Gold Partner" />
+                    <img src="/bitrix24-certified-gold-partner.png" alt="Bitrix24 Certified Gold Partner" />
                   </a>
                 )}
                 <h2>{section.title}</h2>{section.subtitle && <h3>{section.subtitle}</h3>}{section.phrase && <p className="phrase">{section.phrase}</p>}{section.intro && <p>{section.intro}</p>}
-              </div>
-            </Reveal>
+                <Link className="service-inline-cta" href="/contacto">Hablemos de esta solución <ArrowUpRight size={17} /></Link>
+              </Reveal>
+              <Reveal className="service-visual"><div style={visualStyle(service.slug, index)} role="img" aria-label={`Imagen de apoyo para ${section.title}`} /></Reveal>
+            </div>
             <div className="feature-grid">
               {section.groups.map((group) => (
                 <Reveal className="feature-card" key={group.title}>
