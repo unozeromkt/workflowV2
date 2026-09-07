@@ -5,6 +5,7 @@ import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { WhatsAppContactForm } from "@/components/WhatsAppContactForm";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
+import { locations } from "@/data/site";
 
 export const metadata: Metadata = { title: "Contacto", description: "¿LISTOS PARA EL FUTURO?" };
 
@@ -20,6 +21,9 @@ export default function ContactPage() {
           <div className="contact-direct">
             <a href="https://wa.me/573005243896" target="_blank" rel="noreferrer"><WhatsAppIcon /><span><small>WHATSAPP</small>+57 300 524 38 96</span><ArrowUpRight /></a>
             <a href="mailto:info@workflowteams.com"><Mail /><span><small>EMAIL</small>info@workflowteams.com</span><ArrowUpRight /></a>
+          </div>
+          <div className="contact-country-chips" aria-label="Países donde Workflow tiene presencia">
+            {[...new Set(locations.map(({ country }) => country))].map((country) => <span key={country}>{country}</span>)}
           </div>
         </Reveal>
         <WhatsAppContactForm />

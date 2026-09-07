@@ -48,6 +48,7 @@ test("integrates methodology and international presence into WE ARE", async () =
   assert.match(html, /we-are-team\.png/);
   assert.doesNotMatch(html, /editorial-number/);
   assert.match(html, /location-presence-layout/);
+  assert.doesNotMatch(html, /contact-country-chips/);
   assert.match(html, /Medellín/);
   assert.match(html, /Buenos Aires/);
 });
@@ -59,6 +60,8 @@ test("renders sector client logos and Bitrix partner proof", async () => {
   assert.match(experience, /Alcaldía de Medellín/);
   assert.match(experience, /Alcaldía Mayor de Tunja/);
   assert.match(experience, /industry-card-image/);
+  assert.match(experience, /industry-clients-track/);
+  assert.match(experience, /industry-clients-group/);
 
   const crm = await htmlFor("/servicios/crm-software-rpa");
   assert.match(crm, /service-bitrix-badge/);
@@ -73,6 +76,7 @@ test("renders the reorganized contact form and flag locations", async () => {
   const html = await htmlFor("/contacto");
   assert.match(html, /Diseñemos una estrategia para tu negocio/);
   assert.match(html, /location-flag/);
+  assert.match(html, /contact-country-chips/);
   assert.match(html, /Estrategia global, acompañamiento cercano/);
   assert.match(html, /mailto:info@workflowteams\.com/);
   assert.match(html, /info@workflowteams\.com/);

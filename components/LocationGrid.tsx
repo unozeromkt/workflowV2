@@ -15,7 +15,6 @@ export function LocationGrid({ compact = false }: { compact?: boolean }) {
         <div className="location-visual-copy">
           <span>UNA RED · OCHO CIUDADES</span>
           <strong>Visión global.<br />Ejecución local.</strong>
-          <div>{[...new Set(locations.map(({ country }) => country))].map((country) => <small key={country}>{country}</small>)}</div>
         </div>
       </div>
     </div>
