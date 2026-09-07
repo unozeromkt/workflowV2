@@ -31,7 +31,9 @@ test("server-renders the updated home experience", async () => {
   assert.doesNotMatch(html, /clients\/fadesa\.png/);
   assert.match(html, /INDUSTRIAS IMPLEMENTADAS/);
   assert.match(html, /industries-01-05\.png/);
-  assert.match(html, /Soluciones integrales de/);
+  assert.match(html, /Soluciones integrales <span>con IA<\/span> para potenciar tu empresa/);
+  const hero = html.match(/<section class="hero">([\s\S]*?)<\/section>/)?.[1] ?? "";
+  assert.doesNotMatch(hero, /TRANSFORMAMOS VIDAS Y MODELOS DE NEGOCIO/);
   assert.doesNotMatch(html, /Atenea Multiservicios/);
   assert.match(html, /bitrix24\.co\/partners\/\?ID=11605791/);
   assert.doesNotMatch(html, /<section class="section methodology-section">/);
