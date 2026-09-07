@@ -6,7 +6,7 @@ import { MethodologyGrid } from "@/components/MethodologyGrid";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 
-export const metadata: Metadata = { title: "WE ARE", description: "WE ARE" };
+export const metadata: Metadata = { title: "Workflow International | Soluciones integrales con IA", description: "WE ARE" };
 
 export default function AboutPage() {
   return (

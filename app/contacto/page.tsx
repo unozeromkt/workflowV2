@@ -7,7 +7,7 @@ import { WhatsAppContactForm } from "@/components/WhatsAppContactForm";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { locations } from "@/data/site";
 
-export const metadata: Metadata = { title: "Contacto", description: "¿LISTOS PARA EL FUTURO?" };
+export const metadata: Metadata = { title: "Workflow International | Soluciones integrales con IA", description: "¿LISTOS PARA EL FUTURO?" };
 
 export default function ContactPage() {
   return (

@@ -22,6 +22,7 @@ async function htmlFor(pathname) {
 
 test("server-renders the updated home experience", async () => {
   const html = await htmlFor("/");
+  assert.match(html, /<title>Workflow International \| Soluciones integrales con IA<\/title>/);
   assert.match(html, />WE ARE<\/a>/);
   assert.match(html, />Contacto<\/a>/);
   assert.match(html, /Algunas organizaciones que confían en Workflow/);

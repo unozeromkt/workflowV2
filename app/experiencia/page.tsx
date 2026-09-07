@@ -8,7 +8,7 @@ import { industries } from "@/data/site";
 import { industryImageStyle } from "@/components/IndustryVisual";
 import type { Client } from "@/data/site";
 
-export const metadata: Metadata = { title: "Experiencia Workflow", description: "EXPERIENCIA WORKFLOW · INDUSTRIAS IMPLEMENTADAS" };
+export const metadata: Metadata = { title: "Workflow International | Soluciones integrales con IA", description: "EXPERIENCIA WORKFLOW · INDUSTRIAS IMPLEMENTADAS" };
 const icons = [HeartPulse, HandHeart, Landmark, Plane, GraduationCap, Dumbbell, Bolt, HardHat, Building2, Car, ShoppingCart, Store, BadgeDollarSign, CodeXml, Factory];
 
 function IndustryClientCarousel({ clients, label }: { clients: Client[]; label: string }) {

@@ -47,21 +47,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const service = services.find((item) => item.slug === slug);
   if (!service) return {};
-  if (slug === "inteligencia-artificial") {
-    const title = "Workflow International | Soluciones integrales con IA";
-    return {
-      title: { absolute: title },
-      description: "Soluciones integrales con IA para potenciar tu empresa.",
-      openGraph: { title, description: "Soluciones integrales con IA para potenciar tu empresa.", images: [] },
-      twitter: { title, description: "Soluciones integrales con IA para potenciar tu empresa.", images: [] },
-    };
-  }
-  const title = service.heroLines?.join(" ") ?? service.title;
+  const title = "Workflow International | Soluciones integrales con IA";
+  const description = service.heroLines?.join(" ") ?? service.title;
   return {
-    title,
-    description: title,
-    openGraph: { title, description: title, images: [] },
-    twitter: { title, description: title, images: [] },
+    title: { absolute: title },
+    description,
+    openGraph: { title, description, images: [] },
+    twitter: { title, description, images: [] },
   };
 }
 

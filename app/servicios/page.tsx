@@ -6,7 +6,7 @@ import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { services } from "@/data/site";
 
-export const metadata: Metadata = { title: "ENFOQUE WORKFLOW", description: "ENFOQUE WORKFLOW" };
+export const metadata: Metadata = { title: "Workflow International | Soluciones integrales con IA", description: "ENFOQUE WORKFLOW" };
 const icons = [BrainCircuit, Workflow, ShoppingCart, Headset, Compass];
 
 export default function ServicesPage() {

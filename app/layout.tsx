@@ -4,6 +4,8 @@ import { headers } from "next/headers";
 import { Footer, Header, WhatsAppCTA } from "@/components/SiteChrome";
 import "./globals.css";
 
+const SITE_TITLE = "Workflow International | Soluciones integrales con IA";
+
 const archivo = Archivo({ variable: "--font-body", subsets: ["latin"] });
 const archivoBlack = Archivo_Black({ variable: "--font-display", subsets: ["latin"], weight: "400" });
 
@@ -15,14 +17,14 @@ export async function generateMetadata(): Promise<Metadata> {
   const description = "ESTRATEGIA, TECNOLOGÍA Y OPERACIÓN INTELIGENTE";
   return {
     metadataBase,
-    title: { default: "WORKFLOW INT.", template: "%s | WORKFLOW INT." },
+    title: SITE_TITLE,
     description,
     icons: {
       icon: [{ url: "/favicon.png", type: "image/png", sizes: "64x62" }],
       apple: [{ url: "/apple-touch-icon.png", type: "image/png" }],
     },
-    openGraph: { title: "WORKFLOW INT.", description, images: [{ url: new URL("/og.png", metadataBase).toString(), width: 1536, height: 1024 }] },
-    twitter: { card: "summary_large_image", title: "WORKFLOW INT.", description, images: [new URL("/og.png", metadataBase).toString()] },
+    openGraph: { title: SITE_TITLE, description, images: [{ url: new URL("/og.png", metadataBase).toString(), width: 1536, height: 1024 }] },
+    twitter: { card: "summary_large_image", title: SITE_TITLE, description, images: [new URL("/og.png", metadataBase).toString()] },
   };
 }
 
