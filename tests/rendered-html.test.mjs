@@ -26,7 +26,7 @@ test("server-renders the updated home experience", async () => {
   assert.match(html, />WE ARE<\/a>/);
   assert.match(html, />Contacto<\/a>/);
   assert.match(html, /Algunas organizaciones que confían en Workflow/);
-  assert.match(html, /clients\/2026\/grupo-sura\.png/);
+  assert.match(html, /clients\/2026\/epm\.png/);
   assert.match(html, /clients\/2026\/auros\.png/);
   assert.match(html, /clients\/2026\/uam\.svg/);
   assert.doesNotMatch(html, /clients\/fadesa\.png/);
@@ -68,7 +68,10 @@ test("renders sector client logos and Bitrix partner proof", async () => {
 
   const crm = await htmlFor("/servicios/crm-software-rpa");
   assert.match(crm, /service-bitrix-badge/);
-  assert.match(crm, /Bitrix24 Certified Gold Partner/);
+  assert.match(crm, /class="service-bitrix-logo"/);
+  assert.match(crm, /class="service-bitrix-gold"/);
+  assert.match(crm, /alt="Gold Partner"/);
+  assert.match(crm, /bitrix24-gold-partner\.png/);
   assert.match(crm, /bitrix24-certified-gold-partner\.png/);
   assert.match(crm, /service-visual/);
   assert.doesNotMatch(crm, /<span>01<\/span>/);
@@ -90,11 +93,13 @@ test("renders sector client logos and Bitrix partner proof", async () => {
 
 test("renders the reorganized contact form and flag locations", async () => {
   const html = await htmlFor("/contacto");
-  assert.match(html, /Diseñemos una estrategia para tu negocio/);
+  assert.match(html, /Transformemos tu negocio con IA especializada/);
   assert.match(html, /location-flag/);
   assert.match(html, /contact-country-chips/);
   assert.match(html, /Estrategia global, acompañamiento cercano/);
-  assert.match(html, /mailto:info@workflowteams\.com/);
-  assert.match(html, /info@workflowteams\.com/);
+  assert.match(html, /mailto:info@weareworkflow\.com/);
+  assert.match(html, /info@weareworkflow\.com/);
+  assert.doesNotMatch(html, /01 \/ PRIMER CONTACTO/);
+  assert.doesNotMatch(html, /UNA RED · OCHO CIUDADES/);
   assert.doesNotMatch(html, /WEAREWORKFLOW\.COM/);
 });

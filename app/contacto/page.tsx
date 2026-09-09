@@ -16,14 +16,14 @@ export default function ContactPage() {
       <section className="section contact-experience">
         <Reveal className="contact-intro">
           <p className="section-kicker">HABLEMOS</p>
-          <h2>Cuéntanos qué quieres transformar.</h2>
+          <h2>Transformemos tu negocio con IA especializada.</h2>
           <p>Comparte el reto de tu empresa. Organizaremos tus datos en un mensaje claro para iniciar la conversación directamente por WhatsApp.</p>
           <div className="contact-direct">
             <a href="https://wa.me/573005243896" target="_blank" rel="noreferrer"><WhatsAppIcon /><span><small>WHATSAPP</small>+57 300 524 38 96</span><ArrowUpRight /></a>
-            <a href="mailto:info@workflowteams.com"><Mail /><span><small>EMAIL</small>info@workflowteams.com</span><ArrowUpRight /></a>
+            <a href="mailto:info@weareworkflow.com"><Mail /><span><small>EMAIL</small>info@weareworkflow.com</span><ArrowUpRight /></a>
           </div>
           <div className="contact-country-chips" aria-label="Países donde Workflow tiene presencia">
-            {[...new Set(locations.map(({ country }) => country))].map((country) => <span key={country}>{country}</span>)}
+            {locations.map(({ country, flag }) => <span key={country} aria-label={country} title={country}><b aria-hidden="true">{flag}</b></span>)}
           </div>
         </Reveal>
         <WhatsAppContactForm />

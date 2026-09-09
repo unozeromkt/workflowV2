@@ -13,7 +13,6 @@ export function LocationGrid({ compact = false }: { compact?: boolean }) {
       </div>
       <div className="location-visual" role="img" aria-label="Equipo internacional de Workflow colaborando entre Colombia, Argentina, Ecuador, España, Estados Unidos, Perú, El Salvador y Alemania">
         <div className="location-visual-copy">
-          <span>UNA RED · OCHO CIUDADES</span>
           <strong>Visión global.<br />Ejecución local.</strong>
         </div>
       </div>

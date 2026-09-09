@@ -74,7 +74,8 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
               <Reveal className="service-block-heading">
                 {service.slug === "crm-software-rpa" && index === 0 && (
                   <a className="service-bitrix-badge" href="https://www.bitrix24.co/partners/?ID=11605791" target="_blank" rel="noreferrer" aria-label="Ver perfil Gold Partner de Workflow en Bitrix24">
-                    <img src="/bitrix24-certified-gold-partner.png" alt="Bitrix24 Certified Gold Partner" />
+                    <img className="service-bitrix-logo" src="/bitrix24-gold-partner.png" alt="Bitrix24" />
+                    <img className="service-bitrix-gold" src="/bitrix24-certified-gold-partner.png" alt="Gold Partner" />
                   </a>
                 )}
                 <h2>{section.title}</h2>{section.subtitle && <h3>{section.subtitle}</h3>}{section.phrase && <p className="phrase">{section.phrase}</p>}{section.intro && <p>{section.intro}</p>}

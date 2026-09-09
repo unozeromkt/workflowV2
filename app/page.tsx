@@ -16,7 +16,7 @@ export default function Home() {
         <div className="hero-noise" />
         <div className="hero-copy">
           <h1>Soluciones integrales <span>con IA</span> para potenciar tu empresa</h1>
-          <p className="hero-lead">Diseñamos soluciones a la medida que integran <strong>estrategia, tecnología, inteligencia artificial y operación</strong>, adaptadas a las necesidades y desafíos de cada empresa para optimizar procesos, transformar su operación e impulsar su crecimiento.</p>
+          <p className="hero-lead">Diseñamos soluciones a la medida que integran estrategia focalizada y tecnología impulsada por inteligencia artificial que se adapta a las necesidades y desafíos de las industrias, transformando su operación e impulsando su crecimiento.</p>
           <div className="hero-actions">
             <Link className="button button-primary" href="/servicios">Conoce nuestras soluciones <ArrowUpRight size={18} /></Link>
           </div>

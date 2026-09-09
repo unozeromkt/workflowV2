@@ -234,24 +234,25 @@ export type Client = {
 };
 
 export const clients: Client[] = [
-  { name: "Grupo Sura", logo: "/clients/2026/grupo-sura.png", width: 260 },
+  // Orden prioritario solicitado por el cliente para el carrusel de inicio.
+  { name: "EPM", logo: "/clients/2026/epm.png", width: 228 },
+  { name: "Confía", logo: "/clients/2026/confia.png", width: 276, surface: "dark" },
   { name: "Alcaldía de Medellín", logo: "/clients/2026/alcaldia-medellin.png", width: 278, surface: "dark" },
+  { name: "Comfacundi", logo: "/clients/2026/comfacundi.png", width: 236, scale: 0.8 },
+  { name: "Cajamag", logo: "/clients/2026/cajamag.png", width: 270 },
+  { name: "Universidad Autónoma de Manizales", logo: "/clients/2026/uam.svg", width: 248, surface: "dark" },
+  { name: "Greater Medellín Convention & Visitors Bureau", logo: "/clients/2026/greater-medellin.png", width: 278 },
+  { name: "Auros", logo: "/clients/2026/auros.png", width: 270 },
+  { name: "Grupo Sura", logo: "/clients/2026/grupo-sura.png", width: 260 },
   { name: "Comfaboy", logo: "/clients/2026/comfaboy.png", width: 270 },
   { name: "Imcolmédica", logo: "/clients/2026/imcolmedica.png", width: 286 },
   { name: "Alcaldía Mayor de Tunja", logo: "/clients/2026/alcaldia-tunja.png", width: 270, surface: "dark" },
-  { name: "Cajamag", logo: "/clients/2026/cajamag.png", width: 270 },
   { name: "Comfenalco Antioquia", logo: "/clients/2026/comfenalco-antioquia.png", width: 268 },
   { name: "Suplemédicos", logo: "/clients/2026/suplemedicos.png", width: 286 },
   { name: "Guillermo Rhenals", logo: "/clients/2026/guillermo-rhenals.png", width: 150 },
   { name: "Bogotá", logo: "/clients/2026/bogota.png", width: 278, surface: "dark" },
   { name: "Comfandi", logo: "/clients/2026/comfandi.png", width: 276 },
-  { name: "Universidad Autónoma de Manizales", logo: "/clients/2026/uam.svg", width: 248, surface: "dark" },
   { name: "AmCham Colombia", logo: "/clients/2026/amcham-colombia.png", width: 270, surface: "dark" },
-  { name: "Confía", logo: "/clients/2026/confia.png", width: 276, surface: "dark" },
-  { name: "Comfacundi", logo: "/clients/2026/comfacundi.png", width: 236, scale: 0.8 },
-  { name: "Greater Medellín Convention & Visitors Bureau", logo: "/clients/2026/greater-medellin.png", width: 278 },
-  { name: "EPM", logo: "/clients/2026/epm.png", width: 228 },
-  { name: "Auros", logo: "/clients/2026/auros.png", width: 270 },
 ];
 
 const client = (...names: string[]) => names.map((name) => clients.find((item) => item.name === name)).filter((item): item is Client => Boolean(item));
