@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { BadgeDollarSign, Bolt, Building2, Car, CodeXml, Dumbbell, Factory, GraduationCap, HandHeart, HardHat, HeartPulse, Landmark, Plane, ShoppingCart, Store } from "lucide-react";
+import { BadgeDollarSign, Bolt, Building2, Car, CodeXml, Factory, GraduationCap, HandHeart, HardHat, HeartPulse, Landmark, Plane, ShoppingCart, Store, Wrench } from "lucide-react";
 import { ClientLogo } from "@/components/ClientLogo";
 import { FinalCTA } from "@/components/FinalCTA";
 import { PageHero } from "@/components/PageHero";
@@ -9,7 +9,7 @@ import { industryImageStyle } from "@/components/IndustryVisual";
 import type { Client } from "@/data/site";
 
 export const metadata: Metadata = { title: "Workflow International | Soluciones integrales con IA", description: "EXPERIENCIA WORKFLOW · INDUSTRIAS IMPLEMENTADAS" };
-const icons = [HeartPulse, HandHeart, Landmark, Plane, GraduationCap, Dumbbell, Bolt, HardHat, Building2, Car, ShoppingCart, Store, BadgeDollarSign, CodeXml, Factory];
+const icons = [HeartPulse, HandHeart, Landmark, Plane, GraduationCap, Wrench, Bolt, HardHat, Building2, Car, ShoppingCart, Store, BadgeDollarSign, CodeXml, Factory];
 
 function IndustryClientCarousel({ clients, label }: { clients: Client[]; label: string }) {
   const copies = clients.length > 2 ? [0, 1] : [0];

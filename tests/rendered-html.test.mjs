@@ -74,14 +74,20 @@ test("renders sector client logos and Bitrix partner proof", async () => {
   assert.match(experience, /industry-clients-group/);
   const experienceLogoPaths = [...experience.matchAll(/src="(\/experience-logos\/[a-z0-9/-]+\.png)"/g)].map((match) => match[1]);
   const uniqueExperienceLogoPaths = [...new Set(experienceLogoPaths)];
-  assert.equal(uniqueExperienceLogoPaths.length, 71);
+  assert.equal(uniqueExperienceLogoPaths.length, 76);
   for (const logoPath of uniqueExperienceLogoPaths) {
     assert.equal(existsSync(join(process.cwd(), "public", logoPath)), true, `Missing experience logo: ${logoPath}`);
   }
   assert.match(experience, /experience-logos\/cajas-compensacion\/01\.png/);
   assert.match(experience, /experience-logos\/educacion\/06\.png/);
+  assert.match(experience, /experience-logos\/servicios\/01\.png/);
+  assert.match(experience, /experience-logos\/servicios\/05\.png/);
   assert.match(experience, /experience-logos\/construccion\/05\.png/);
   assert.doesNotMatch(experience, /WEAREWORKFLOW_2026E/);
+  assert.match(experience, />SERVICIOS</);
+  assert.doesNotMatch(experience, />DEPORTE</);
+  assert.match(experience, /AKUO Operación de Equipos/);
+  assert.match(experience, /Primer/);
   assert.match(experience, /Viajes y Viajes/);
   assert.match(experience, /Root\+Co/);
 

@@ -255,8 +255,6 @@ export const clients: Client[] = [
   { name: "AmCham Colombia", logo: "/clients/2026/amcham-colombia.png", width: 270, surface: "dark" },
 ];
 
-const client = (...names: string[]) => names.map((name) => clients.find((item) => item.name === name)).filter((item): item is Client => Boolean(item));
-
 const experienceClients: Client[] = [
   { name: "Guillermo Rhenals", logo: "/experience-logos/salud/01.png", width: 220 },
   { name: "Grupo Sura", logo: "/experience-logos/salud/02.png", width: 220 },
@@ -282,6 +280,11 @@ const experienceClients: Client[] = [
   { name: "Tecnológico de Artes Débora Arango", logo: "/experience-logos/educacion/04.png", width: 220 },
   { name: "Universidad Autónoma de Manizales", logo: "/experience-logos/educacion/05.png", width: 220 },
   { name: "Politécnico PIO", logo: "/experience-logos/educacion/06.png", width: 220 },
+  { name: "AKUO Operación de Equipos", logo: "/experience-logos/servicios/01.png", width: 220, surface: "dark" },
+  { name: "ZG Mayoristas", logo: "/experience-logos/servicios/02.png", width: 220 },
+  { name: "GreenLink Tecnología y Seguridad", logo: "/experience-logos/servicios/03.png", width: 220, surface: "dark" },
+  { name: "Termotécnica Industrial", logo: "/experience-logos/servicios/04.png", width: 220, surface: "dark" },
+  { name: "Primer", logo: "/experience-logos/servicios/05.png", width: 220, surface: "dark" },
   { name: "Greater Medellín Convention & Visitors Bureau", logo: "/experience-logos/servicios-publicos/01.png", width: 220 },
   { name: "Gaz", logo: "/experience-logos/servicios-publicos/02.png", width: 220 },
   { name: "Llanogas", logo: "/experience-logos/servicios-publicos/03.png", width: 220, surface: "dark" },
@@ -339,7 +342,7 @@ export const industries = [
   { title: "SECTOR PÚBLICO", text: "Gestionamos asertivamente gobierno corporativo y atención integral al ciudadano.", clients: experienceClient("AmCham Colombia", "Alcaldía de Medellín", "Alcaldía Mayor de Tunja", "Alcaldía Mayor de Bogotá") },
   { title: "TURISMO", text: "Atención, reserva inteligente y gestión al viajero de manera autónoma.", clients: experienceClient("Sixteen Travel", "Viajes y Viajes", "Reserve Ahora", "Geoser") },
   { title: "EDUCACIÓN", text: "Procesos académicos estándar, matrícula digital y programas de extensión.", clients: experienceClient("StudyNow", "Universidad de Antioquia", "Universidad Nacional de Colombia", "Tecnológico de Artes Débora Arango", "Universidad Autónoma de Manizales", "Politécnico PIO") },
-  { title: "DEPORTE", text: "Análisis de rendimiento, gestión de membresías y administración de espacios deportivos.", clients: client() },
+  { title: "SERVICIOS", text: "Coordinamos operaciones, mantenimiento, soporte técnico y atención especializada con procesos conectados y medibles.", clients: experienceClient("AKUO Operación de Equipos", "ZG Mayoristas", "GreenLink Tecnología y Seguridad", "Termotécnica Industrial", "Primer") },
   { title: "SERVICIOS PÚBLICOS", text: "Gestión inteligente de PQRs, facturación, proyectos especiales y trámites de usuarios.", clients: experienceClient("Greater Medellín Convention & Visitors Bureau", "Gaz", "Llanogas", "Cusianagas", "EPM", "Biogás") },
   { title: "CONSTRUCCIÓN", text: "Implementaciones BIM, seguimiento de obra y administración de especialidades.", clients: experienceClient("Green Services and Solutions", "DKO", "S2 Solpak", "López Grupo Constructor", "Prinza") },
   { title: "BIENES RAÍCES", text: "Gestión de prospectos e inmuebles impulsados por pipelines inteligentes.", clients: experienceClient("LBI", "Century 21", "Maxibienes", "Alquiler Argentina", "Sumeria Premium Homes") },
