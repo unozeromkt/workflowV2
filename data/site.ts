@@ -238,7 +238,7 @@ export const clients: Client[] = [
   { name: "EPM", logo: "/clients/2026/epm.png", width: 228 },
   { name: "Confía", logo: "/clients/2026/confia.png", width: 276, surface: "dark" },
   { name: "Alcaldía de Medellín", logo: "/clients/2026/alcaldia-medellin.png", width: 278, surface: "dark" },
-  { name: "Comfacundi", logo: "/clients/2026/comfacundi.png", width: 236, scale: 0.8 },
+  { name: "Comfacundi", logo: "/clients/2026/comfacundi.png", width: 236, scale: 0.62 },
   { name: "Cajamag", logo: "/clients/2026/cajamag.png", width: 270 },
   { name: "Universidad Autónoma de Manizales", logo: "/clients/2026/uam.svg", width: 248, surface: "dark" },
   { name: "Greater Medellín Convention & Visitors Bureau", logo: "/clients/2026/greater-medellin.png", width: 278 },

@@ -29,6 +29,8 @@ test("server-renders the updated home experience", async () => {
   assert.match(html, />Contacto<\/a>/);
   assert.match(html, /Algunas organizaciones que confían en Workflow/);
   assert.match(html, /clients\/2026\/epm\.png/);
+  assert.match(html, /clients\/2026\/comfacundi\.png/);
+  assert.match(html, /--client-logo-scale:0\.62/);
   assert.match(html, /clients\/2026\/auros\.png/);
   assert.match(html, /clients\/2026\/uam\.svg/);
   assert.doesNotMatch(html, /clients\/fadesa\.png/);
