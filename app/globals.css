@@ -35,8 +35,8 @@ button{font:inherit}
 .mega-menu a{padding:13px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:8px;border-radius:8px;font-size:13px;line-height:1.35;transition:.2s}
 .mega-menu a:hover{color:white;background:rgba(255,255,255,.06)}
 .mega-menu a span{color:var(--cyan);font-size:10px}
-.bitrix-partner{width:224px;min-height:52px;padding:6px 11px;justify-self:end;display:flex;align-items:center;justify-content:center;gap:12px;background:rgba(255,255,255,.96);border:1px solid rgba(57,215,237,.45);border-radius:11px;box-shadow:0 10px 30px rgba(0,0,0,.15);transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
-.bitrix-partner img{height:auto;display:block}.bitrix-logo{width:130px}.bitrix-gold-partner{width:58px}.bitrix-partner:hover,.bitrix-partner:focus-visible{transform:translateY(-2px);border-color:var(--cyan);box-shadow:0 14px 36px rgba(7,164,220,.22)}
+.bitrix-partner{width:252px;min-height:62px;padding:4px 12px;justify-self:end;display:flex;align-items:center;justify-content:center;gap:14px;background:rgba(255,255,255,.96);border:1px solid rgba(57,215,237,.45);border-radius:11px;box-shadow:0 10px 30px rgba(0,0,0,.15);transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+.bitrix-partner img{height:auto;display:block}.bitrix-logo{width:134px}.bitrix-gold-partner{width:82px}.bitrix-partner:hover,.bitrix-partner:focus-visible{transform:translateY(-2px);border-color:var(--cyan);box-shadow:0 14px 36px rgba(7,164,220,.22)}
 .menu-toggle,.mobile-contact{display:none}
 
 .hero{min-height:760px;height:100svh;padding:138px var(--pad) 64px;position:relative;display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:clamp(24px,3vw,54px);overflow:hidden;color:white;background:#07111d}
