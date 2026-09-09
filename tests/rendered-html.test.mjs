@@ -37,6 +37,9 @@ test("server-renders the updated home experience", async () => {
   assert.doesNotMatch(hero, /TRANSFORMAMOS VIDAS Y MODELOS DE NEGOCIO/);
   assert.doesNotMatch(html, /Atenea Multiservicios/);
   assert.match(html, /bitrix24\.co\/partners\/\?ID=11605791/);
+  assert.match(html, /class="bitrix-logo"/);
+  assert.match(html, /class="bitrix-gold-partner"/);
+  assert.doesNotMatch(html, /Certified Gold Partner/);
   assert.doesNotMatch(html, /<section class="section methodology-section">/);
   assert.doesNotMatch(html, /class="card-number"/);
 

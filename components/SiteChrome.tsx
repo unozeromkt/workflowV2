@@ -46,8 +46,8 @@ export function Header() {
         ))}
       </nav>
       <a className="bitrix-partner" href={BITRIX_PROFILE} target="_blank" rel="noreferrer" aria-label="Ver perfil de Workflow International Inc. como Gold Partner de Bitrix24">
-        <img src="/bitrix24-gold-partner.png" alt="Bitrix24" />
-        <span>Certified Gold Partner</span>
+        <img className="bitrix-logo" src="/bitrix24-gold-partner.png" alt="Bitrix24" />
+        <img className="bitrix-gold-partner" src="/bitrix24-certified-gold-partner.png" alt="Gold Partner" />
       </a>
       <button className="menu-toggle" type="button" aria-label={open ? "Cerrar menú" : "Abrir menú"} aria-expanded={open} onClick={() => setOpen(!open)}>
         {open ? <X /> : <Menu />}
