@@ -65,6 +65,12 @@ test("renders sector client logos and Bitrix partner proof", async () => {
   assert.match(experience, /industry-card-image/);
   assert.match(experience, /industry-clients-track/);
   assert.match(experience, /industry-clients-group/);
+  assert.match(experience, /experience\/Salud\/WEAREWORKFLOW_2026E/);
+  assert.match(experience, /experience\/turismo\/WEAREWORKFLOW_2026E/);
+  assert.match(experience, /experience\/servicios publicos\/WEAREWORKFLOW_2026E/);
+  assert.match(experience, /experience\/automotriz\/WEAREWORKFLOW_2026E/);
+  assert.match(experience, /Viajes y Viajes/);
+  assert.match(experience, /Root\+Co/);
 
   const crm = await htmlFor("/servicios/crm-software-rpa");
   assert.match(crm, /service-bitrix-badge/);
