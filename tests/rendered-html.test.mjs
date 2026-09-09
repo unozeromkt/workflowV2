@@ -1,4 +1,6 @@
 import assert from "node:assert/strict";
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import test from "node:test";
 
 async function render(pathname = "/") {
@@ -68,10 +70,16 @@ test("renders sector client logos and Bitrix partner proof", async () => {
   assert.match(experience, /industry-card-image/);
   assert.match(experience, /industry-clients-track/);
   assert.match(experience, /industry-clients-group/);
-  assert.match(experience, /experience\/Salud\/WEAREWORKFLOW_2026E/);
-  assert.match(experience, /experience\/turismo\/WEAREWORKFLOW_2026E/);
-  assert.match(experience, /experience\/servicios publicos\/WEAREWORKFLOW_2026E/);
-  assert.match(experience, /experience\/automotriz\/WEAREWORKFLOW_2026E/);
+  const experienceLogoPaths = [...experience.matchAll(/src="(\/experience-logos\/[a-z0-9/-]+\.png)"/g)].map((match) => match[1]);
+  const uniqueExperienceLogoPaths = [...new Set(experienceLogoPaths)];
+  assert.equal(uniqueExperienceLogoPaths.length, 71);
+  for (const logoPath of uniqueExperienceLogoPaths) {
+    assert.equal(existsSync(join(process.cwd(), "public", logoPath)), true, `Missing experience logo: ${logoPath}`);
+  }
+  assert.match(experience, /experience-logos\/cajas-compensacion\/01\.png/);
+  assert.match(experience, /experience-logos\/educacion\/06\.png/);
+  assert.match(experience, /experience-logos\/construccion\/05\.png/);
+  assert.doesNotMatch(experience, /WEAREWORKFLOW_2026E/);
   assert.match(experience, /Viajes y Viajes/);
   assert.match(experience, /Root\+Co/);
 
