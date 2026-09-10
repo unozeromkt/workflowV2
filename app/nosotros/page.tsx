@@ -17,7 +17,7 @@ export default function AboutPage() {
           <p>Somos una compañía dedicada a potencializar la productividad e impulsar la transformación tecnológica de los modelos de negocio. Nuestro objetivo principal es liberar el máximo potencial de los equipos de trabajo, dejando que la Inteligencia Artificial asuma la carga operativa, mientras el talento humano aporta el criterio estratégico que marca la diferencia.</p>
           <p>Digitalizamos y optimizamos flujos de trabajo en áreas específicas o transversalmente en las organizaciones, entendiendo sus necesidades y apartir de nuestra experiencia interdisciplinar acompañamos las empresas a adoptar soluciones tecnológicas especializadas que den solución a sus problematicas.</p>
         </Reveal>
-        <Reveal className="about-editorial-image"><img src="/editorial/we-are-team.png" alt="Equipo interdisciplinar de Workflow colaborando en una estrategia digital" /></Reveal>
+        <Reveal className="about-editorial-image"><img src="/editorial/we-are-team.webp" alt="Equipo interdisciplinar de Workflow colaborando en una estrategia digital" /></Reveal>
       </section>
       <section className="dark-section vision-section vision-section-compact">
         <Reveal className="vision-heading"><p className="section-kicker">VISIÓN</p><h2>HUMAN IN THE LOOP</h2><p>Modelo operativo donde la IA procesa, aprende y escala tareas repetitivas, mientras el talento humano valida, toma decisiones críticas y garantiza la calidad del servicio.</p></Reveal>

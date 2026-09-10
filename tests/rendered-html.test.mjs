@@ -28,14 +28,14 @@ test("server-renders the updated home experience", async () => {
   assert.match(html, />WE ARE<\/a>/);
   assert.match(html, />Contacto<\/a>/);
   assert.match(html, /Algunas organizaciones que confían en Workflow/);
-  assert.match(html, /clients\/2026\/epm\.png/);
-  assert.match(html, /clients\/2026\/comfacundi\.png/);
+  assert.match(html, /clients\/2026\/epm\.webp/);
+  assert.match(html, /clients\/2026\/comfacundi\.webp/);
   assert.match(html, /--client-logo-scale:0\.62/);
-  assert.match(html, /clients\/2026\/auros\.png/);
+  assert.match(html, /clients\/2026\/auros\.webp/);
   assert.match(html, /clients\/2026\/uam\.svg/);
-  assert.doesNotMatch(html, /clients\/fadesa\.png/);
+  assert.doesNotMatch(html, /clients\/fadesa\.webp/);
   assert.match(html, /INDUSTRIAS IMPLEMENTADAS/);
-  assert.match(html, /industries-01-05\.png/);
+  assert.match(html, /industries-01-05\.webp/);
   assert.match(html, /Soluciones integrales <span>con IA<\/span> para potenciar tu empresa/);
   const hero = html.match(/<section class="hero">([\s\S]*?)<\/section>/)?.[1] ?? "";
   assert.doesNotMatch(hero, /TRANSFORMAMOS VIDAS Y MODELOS DE NEGOCIO/);
@@ -55,7 +55,7 @@ test("integrates methodology and international presence into WE ARE", async () =
   const html = await htmlFor("/nosotros");
   assert.match(html, /METODOLOGÍA WORKFLOW/);
   assert.match(html, /methodology-editorial-image/);
-  assert.match(html, /we-are-team\.png/);
+  assert.match(html, /we-are-team\.webp/);
   assert.doesNotMatch(html, /editorial-number/);
   assert.match(html, /location-presence-layout/);
   assert.doesNotMatch(html, /contact-country-chips/);
@@ -72,17 +72,17 @@ test("renders sector client logos and Bitrix partner proof", async () => {
   assert.match(experience, /industry-card-image/);
   assert.match(experience, /industry-clients-track/);
   assert.match(experience, /industry-clients-group/);
-  const experienceLogoPaths = [...experience.matchAll(/src="(\/experience-logos\/[a-z0-9/-]+\.png)"/g)].map((match) => match[1]);
+  const experienceLogoPaths = [...experience.matchAll(/src="(\/experience-logos\/[a-z0-9/-]+\.webp)"/g)].map((match) => match[1]);
   const uniqueExperienceLogoPaths = [...new Set(experienceLogoPaths)];
   assert.equal(uniqueExperienceLogoPaths.length, 76);
   for (const logoPath of uniqueExperienceLogoPaths) {
     assert.equal(existsSync(join(process.cwd(), "public", logoPath)), true, `Missing experience logo: ${logoPath}`);
   }
-  assert.match(experience, /experience-logos\/cajas-compensacion\/01\.png/);
-  assert.match(experience, /experience-logos\/educacion\/06\.png/);
-  assert.match(experience, /experience-logos\/servicios\/01\.png/);
-  assert.match(experience, /experience-logos\/servicios\/05\.png/);
-  assert.match(experience, /experience-logos\/construccion\/05\.png/);
+  assert.match(experience, /experience-logos\/cajas-compensacion\/01\.webp/);
+  assert.match(experience, /experience-logos\/educacion\/06\.webp/);
+  assert.match(experience, /experience-logos\/servicios\/01\.webp/);
+  assert.match(experience, /experience-logos\/servicios\/05\.webp/);
+  assert.match(experience, /experience-logos\/construccion\/05\.webp/);
   assert.doesNotMatch(experience, /WEAREWORKFLOW_2026E/);
   assert.match(experience, />SERVICIOS</);
   assert.doesNotMatch(experience, />DEPORTE</);
@@ -96,20 +96,20 @@ test("renders sector client logos and Bitrix partner proof", async () => {
   assert.match(crm, /class="service-bitrix-logo"/);
   assert.match(crm, /class="service-bitrix-gold"/);
   assert.match(crm, /alt="Gold Partner"/);
-  assert.match(crm, /bitrix24-gold-partner\.png/);
-  assert.match(crm, /bitrix24-certified-gold-partner\.png/);
+  assert.match(crm, /bitrix24-gold-partner\.webp/);
+  assert.match(crm, /bitrix24-certified-gold-partner\.webp/);
   assert.match(crm, /service-visual/);
   assert.doesNotMatch(crm, /<span>01<\/span>/);
   assert.match(crm, /bitrix24\.co\/partners\/\?ID=11605791/);
 
   const artificialIntelligence = await htmlFor("/servicios/inteligencia-artificial");
   for (const image of [
-    "sales-front-office.png",
-    "hr-tech.png",
-    "finance-legal.png",
-    "intelligent-workflows.png",
-    "field-iot.png",
-    "executive-analytics.png",
+    "sales-front-office.webp",
+    "hr-tech.webp",
+    "finance-legal.webp",
+    "intelligent-workflows.webp",
+    "field-iot.webp",
+    "executive-analytics.webp",
   ]) {
     assert.match(artificialIntelligence, new RegExp(image.replace(".", "\\.")));
   }

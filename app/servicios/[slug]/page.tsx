@@ -13,27 +13,27 @@ export function generateStaticParams() { return services.map(({ slug }) => ({ sl
 
 const serviceVisuals: Record<string, Array<{ src: string; size: string; position: string }>> = {
   "inteligencia-artificial": [
-    { src: "/services/artificial-intelligence/sales-front-office.png", size: "cover", position: "center" },
-    { src: "/services/artificial-intelligence/hr-tech.png", size: "cover", position: "center" },
-    { src: "/services/artificial-intelligence/finance-legal.png", size: "cover", position: "center" },
-    { src: "/services/artificial-intelligence/intelligent-workflows.png", size: "cover", position: "center" },
-    { src: "/services/artificial-intelligence/field-iot.png", size: "cover", position: "center" },
-    { src: "/services/artificial-intelligence/executive-analytics.png", size: "cover", position: "center" },
+    { src: "/services/artificial-intelligence/sales-front-office.webp", size: "cover", position: "center" },
+    { src: "/services/artificial-intelligence/hr-tech.webp", size: "cover", position: "center" },
+    { src: "/services/artificial-intelligence/finance-legal.webp", size: "cover", position: "center" },
+    { src: "/services/artificial-intelligence/intelligent-workflows.webp", size: "cover", position: "center" },
+    { src: "/services/artificial-intelligence/field-iot.webp", size: "cover", position: "center" },
+    { src: "/services/artificial-intelligence/executive-analytics.webp", size: "cover", position: "center" },
   ],
   "crm-software-rpa": [
-    { src: "/editorial/methodology-phases.png", size: "400% auto", position: "33.333% center" },
-    { src: "/industries/industries-11-15.png", size: "500% auto", position: "75% center" },
-    { src: "/editorial/methodology-phases.png", size: "400% auto", position: "66.666% center" },
+    { src: "/editorial/methodology-phases.webp", size: "400% auto", position: "33.333% center" },
+    { src: "/industries/industries-11-15.webp", size: "500% auto", position: "75% center" },
+    { src: "/editorial/methodology-phases.webp", size: "400% auto", position: "66.666% center" },
   ],
   "ai-websites-ecommerce": [
-    { src: "/industries/industries-11-15.png", size: "500% auto", position: "0% center" },
-    { src: "/industries/industries-11-15.png", size: "500% auto", position: "25% center" },
-    { src: "/industries/industries-11-15.png", size: "500% auto", position: "75% center" },
+    { src: "/industries/industries-11-15.webp", size: "500% auto", position: "0% center" },
+    { src: "/industries/industries-11-15.webp", size: "500% auto", position: "25% center" },
+    { src: "/industries/industries-11-15.webp", size: "500% auto", position: "75% center" },
   ],
-  "smart-bpo": [{ src: "/industries/industries-01-05.png", size: "500% auto", position: "50% center" }],
+  "smart-bpo": [{ src: "/industries/industries-01-05.webp", size: "500% auto", position: "50% center" }],
   "consultoria-interdisciplinar": [
-    { src: "/editorial/methodology-phases.png", size: "400% auto", position: "0% center" },
-    { src: "/editorial/methodology-phases.png", size: "400% auto", position: "66.666% center" },
+    { src: "/editorial/methodology-phases.webp", size: "400% auto", position: "0% center" },
+    { src: "/editorial/methodology-phases.webp", size: "400% auto", position: "66.666% center" },
   ],
 };
 
@@ -74,8 +74,8 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
               <Reveal className="service-block-heading">
                 {service.slug === "crm-software-rpa" && index === 0 && (
                   <a className="service-bitrix-badge" href="https://www.bitrix24.co/partners/?ID=11605791" target="_blank" rel="noreferrer" aria-label="Ver perfil Gold Partner de Workflow en Bitrix24">
-                    <img className="service-bitrix-logo" src="/bitrix24-gold-partner.png" alt="Bitrix24" />
-                    <img className="service-bitrix-gold" src="/bitrix24-certified-gold-partner.png" alt="Gold Partner" />
+                    <img className="service-bitrix-logo" src="/bitrix24-gold-partner.webp" alt="Bitrix24" />
+                    <img className="service-bitrix-gold" src="/bitrix24-certified-gold-partner.webp" alt="Gold Partner" />
                   </a>
                 )}
                 <h2>{section.title}</h2>{section.subtitle && <h3>{section.subtitle}</h3>}{section.phrase && <p className="phrase">{section.phrase}</p>}{section.intro && <p>{section.intro}</p>}

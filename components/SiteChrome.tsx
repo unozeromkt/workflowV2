@@ -22,7 +22,7 @@ export function Header() {
   return (
     <header className="site-header">
       <Link href="/" className="brand" aria-label="WORKFLOW INT. — Inicio" onClick={() => setOpen(false)}>
-        <img className="brand-logo" src="/workflow-mark.png" alt="" />
+        <img className="brand-logo" src="/workflow-mark.webp" alt="" />
       </Link>
       <nav className={open ? "main-nav is-open" : "main-nav"} aria-label="Navegación principal">
         {links.map((link) => link.services ? (
@@ -46,8 +46,8 @@ export function Header() {
         ))}
       </nav>
       <a className="bitrix-partner" href={BITRIX_PROFILE} target="_blank" rel="noreferrer" aria-label="Ver perfil de Workflow International Inc. como Gold Partner de Bitrix24">
-        <img className="bitrix-logo" src="/bitrix24-gold-partner.png" alt="Bitrix24" />
-        <img className="bitrix-gold-partner" src="/bitrix24-certified-gold-partner.png" alt="Gold Partner" />
+        <img className="bitrix-logo" src="/bitrix24-gold-partner.webp" alt="Bitrix24" />
+        <img className="bitrix-gold-partner" src="/bitrix24-certified-gold-partner.webp" alt="Gold Partner" />
       </a>
       <button className="menu-toggle" type="button" aria-label={open ? "Cerrar menú" : "Abrir menú"} aria-expanded={open} onClick={() => setOpen(!open)}>
         {open ? <X /> : <Menu />}
@@ -60,7 +60,7 @@ export function Footer() {
   return (
     <footer className="site-footer">
       <div className="footer-top">
-        <Link href="/" className="brand footer-brand" aria-label="Workflow International Inc. — Inicio"><img className="brand-logo" src="/workflow-mark.png" alt="" /><span>WORKFLOW INTERNATIONAL INC.</span></Link>
+        <Link href="/" className="brand footer-brand" aria-label="Workflow International Inc. — Inicio"><img className="brand-logo" src="/workflow-mark.webp" alt="" /><span>WORKFLOW INTERNATIONAL INC.</span></Link>
       </div>
       <div className="footer-grid">
         <div className="footer-contact">

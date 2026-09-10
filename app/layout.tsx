@@ -23,8 +23,8 @@ export async function generateMetadata(): Promise<Metadata> {
       icon: [{ url: "/favicon.png", type: "image/png", sizes: "64x62" }],
       apple: [{ url: "/apple-touch-icon.png", type: "image/png" }],
     },
-    openGraph: { title: SITE_TITLE, description, images: [{ url: new URL("/og.png", metadataBase).toString(), width: 1536, height: 1024 }] },
-    twitter: { card: "summary_large_image", title: SITE_TITLE, description, images: [new URL("/og.png", metadataBase).toString()] },
+    openGraph: { title: SITE_TITLE, description, images: [{ url: new URL("/og.jpg", metadataBase).toString(), width: 1536, height: 864 }] },
+    twitter: { card: "summary_large_image", title: SITE_TITLE, description, images: [new URL("/og.jpg", metadataBase).toString()] },
   };
 }
 
